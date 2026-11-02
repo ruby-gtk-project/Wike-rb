@@ -9,13 +9,24 @@ runtime-built widgets. Every component is therefore a *pair* of files, and the
 inventory unions both halves before stating a gap.
 
 Totals: **36 components** across 13 Python modules, 24 `.ui` files, 1 GSettings
-schema (26 keys), 1 GResource manifest, 2 app stylesheets, 2 webview
-stylesheets, 165 icons, 39 translations / 157 msgids.
+schema (23 keys), 1 GResource manifest, 2 app stylesheets, 2 webview
+stylesheets, 128 icons (17 action + 111 emblem), 39 translations / 157 msgids.
 
-Current `lib/` on `ruby`: `lib/wike.rb`, `lib/wike/application.rb` (a
-placeholder `Adwaita::StatusPage` saying the port is unwritten) and
-`lib/wike/rb/version.rb`. **No real UI exists yet**; 35 of 36 components are
-missing and the one that exists is a stub.
+Current `lib/` on `ruby`: **31 of 36 components exist**, in 33 files totalling
+~4,900 lines. The data layer, the Wikipedia client, all four sidebar panels and
+their rows, every menu and popover, all dialogs, the preferences and the two
+stylesheets are ported. All non-code assets — the icon theme, the webview
+stylesheets, `languages.json` and all 39 `po/` catalogues — are in the tree.
+
+**The five that remain are one cluster: the article view.** The Ruby GNOME
+stack ships no WebKitGTK 6 binding, so `WikiView`, `ViewSettings`, `PageBox`
+and the tab view have no port yet, and `lib/wike/application.rb` stands in for
+them by opening an article through `Gtk::UriLauncher`. The sidebar still drives
+off the live Wikipedia API for the open article, so the gap is the embedded
+view and the tab strip around it, not the article behaviour. `window.rb` is the
+fifth: upstream's window is currently inlined into `application.rb` (split
+view, header bar, panel selector, panel stack) and wants splitting out when the
+tab view lands and the file has a second owner.
 
 Naming follows the port's existing namespace: `lib/wike/<thing>.rb`.
 
@@ -23,56 +34,58 @@ Naming follows the port's existing namespace: `lib/wike/<thing>.rb`.
 
 ## Map
 
+`Exists` is read against `lib/` on `ruby` at this commit.
+
 | # | Upstream file(s) | `lib/*.rb` | Kind | Exists |
 |--:|---|---|---|---|
-| 1 | `src/application.py` | `lib/wike/application.rb` | application | stub only |
-| 2 | `src/window.py` + `data/gtk/window.ui` | `lib/wike/window.rb` | window | no |
-| 3 | `src/page.py` (`PageBox`) + `data/gtk/page.ui` | `lib/wike/page_box.rb` | page | no |
-| 4 | `src/page.py` (`PageStatus`) + `data/gtk/page-status.ui` | `lib/wike/page_status.rb` | empty/error state | no |
-| 5 | `src/view.py` (`WikiView`) | `lib/wike/wiki_view.rb` | widget (WebView) | no |
-| 6 | `src/view.py` (`ViewSettings`) | `lib/wike/view_settings.rb` | support | no |
-| 7 | `src/search.py` (`SearchPanel`) + `data/gtk/search.ui` | `lib/wike/search_panel.rb` | sidebar page | no |
-| 8 | `src/search.py` (`SearchRow`) + `data/gtk/search-row.ui` | `lib/wike/search_row.rb` | row | no |
-| 9 | `src/search.py` (`SettingsPopover`) + `data/gtk/search-settings.ui` | `lib/wike/settings_popover.rb` | popover | no |
-| 10 | `src/search.py` (`SettingsLangsRow`) + `data/gtk/search-settings-row.ui` | `lib/wike/settings_langs_row.rb` | row | no |
-| 11 | `src/toc.py` (`TocPanel`) + `data/gtk/toc.ui` | `lib/wike/toc_panel.rb` | sidebar page | no |
-| 12 | `src/toc.py` (`TocBoxRow`) + `data/gtk/toc-row.ui` | `lib/wike/toc_box_row.rb` | row | no |
-| 13 | `src/langlinks.py` (`LanglinksPanel`) + `data/gtk/langlinks.ui` | `lib/wike/langlinks_panel.rb` | sidebar page | no |
-| 14 | `src/langlinks.py` (`LanglinksRow`) + `data/gtk/langlinks-row.ui` | `lib/wike/langlinks_row.rb` | row | no |
-| 15 | `src/langlinks.py` (`LanguagesFilter`) | `lib/wike/languages_filter.rb` | model object | no |
-| 16 | `src/bookmarks.py` (`BookmarksPanel`) + `data/gtk/bookmarks.ui` | `lib/wike/bookmarks_panel.rb` | sidebar page | no |
-| 17 | `src/bookmarks.py` (`BookmarksRow`) + `data/gtk/bookmarks-row.ui` | `lib/wike/bookmarks_row.rb` | row | no |
-| 18 | `src/bookmarks.py` (`BookmarksMenuPopover`) + `data/gtk/bookmarks-menu.ui` | `lib/wike/bookmarks_menu_popover.rb` | menu | no |
-| 19 | `src/bookmarks.py` (`Booklist`) | `lib/wike/booklist.rb` | model object | no |
-| 20 | `src/history.py` (`HistoryPanel`) + `data/gtk/history.ui` | `lib/wike/history_panel.rb` | sidebar page | no |
-| 21 | `src/history.py` (`HistoryRow`) + `data/gtk/history-row.ui` | `lib/wike/history_row.rb` | row | no |
-| 22 | `src/history.py` (`HistoryFilter`) | `lib/wike/history_filter.rb` | model object | no |
-| 23 | `src/languages.py` (`LanguagesDialog`) + `data/gtk/languages.ui` | `lib/wike/languages_dialog.rb` | dialog | no |
-| 24 | `src/languages.py` (`LanguagesRow`) + `data/gtk/languages-row.ui` | `lib/wike/languages_row.rb` | row | no |
-| 25 | `src/prefs.py` + `data/gtk/prefs.ui` | `lib/wike/prefs_dialog.rb` | preferences | no |
-| 26 | `src/menu.py` (`MainMenuPopover`) + `data/gtk/menu-main.ui` | `lib/wike/main_menu_popover.rb` | menu | no |
-| 27 | `src/menu.py` (`ArticleMenuPopover`) + `data/gtk/menu-article.ui` | `lib/wike/article_menu_popover.rb` | menu | no |
-| 28 | `src/menu.py` (`ViewMenuPopover`) + `data/gtk/menu-view.ui` | `lib/wike/view_menu_popover.rb` | menu | no |
-| 29 | `src/menu.py` (`ThemeSwitcher`) + `data/gtk/theme-switcher.ui` | `lib/wike/theme_switcher.rb` | widget | no |
-| 30 | `src/menu.py` (`ZoomLevel`) + `data/gtk/zoom-level.ui` | `lib/wike/zoom_level.rb` | widget | no |
-| 31 | `data/gtk/dialogs.ui` (6 dialogs) | `lib/wike/dialogs.rb` | dialogs | no |
-| 32 | `data/gtk/about.ui` + `_about_cb` in `src/application.py` | `lib/wike/about_dialog.rb` | dialog | no |
-| 33 | `data/gtk/shortcuts-dialog.ui` | `lib/wike/shortcuts_dialog.rb` | keyboard shortcuts | no |
-| 34 | `src/data.py` + `data/com.github.hugolabe.Wike.gschema.xml` | `lib/wike/data.rb` | support (settings + stores) | no |
-| 35 | `src/wikipedia.py` | `lib/wike/wikipedia.rb` | support (API client) | no |
+| 1 | `src/application.py` | `lib/wike/application.rb` | application | yes |
+| 2 | `src/window.py` + `data/gtk/window.ui` | `lib/wike/window.rb` | window | partial — inlined in `application.rb`; no tab view, no `AdwTabBar`, no breakpoint popover re-parenting |
+| 3 | `src/page.py` (`PageBox`) + `data/gtk/page.ui` | `lib/wike/page_box.rb` | page | no — blocked on WebKit |
+| 4 | `src/page.py` (`PageStatus`) + `data/gtk/page-status.ui` | `lib/wike/page_status.rb` | empty/error state | yes |
+| 5 | `src/view.py` (`WikiView`) | `lib/wike/wiki_view.rb` | widget (WebView) | no — blocked on WebKit |
+| 6 | `src/view.py` (`ViewSettings`) | `lib/wike/view_settings.rb` | support | no — blocked on WebKit |
+| 7 | `src/search.py` (`SearchPanel`) + `data/gtk/search.ui` | `lib/wike/search_panel.rb` | sidebar page | yes |
+| 8 | `src/search.py` (`SearchRow`) + `data/gtk/search-row.ui` | `lib/wike/search_row.rb` | row | yes |
+| 9 | `src/search.py` (`SettingsPopover`) + `data/gtk/search-settings.ui` | `lib/wike/settings_popover.rb` | popover | yes |
+| 10 | `src/search.py` (`SettingsLangsRow`) + `data/gtk/search-settings-row.ui` | `lib/wike/settings_langs_row.rb` | row | yes |
+| 11 | `src/toc.py` (`TocPanel`) + `data/gtk/toc.ui` | `lib/wike/toc_panel.rb` | sidebar page | yes |
+| 12 | `src/toc.py` (`TocBoxRow`) + `data/gtk/toc-row.ui` | `lib/wike/toc_box_row.rb` | row | yes |
+| 13 | `src/langlinks.py` (`LanglinksPanel`) + `data/gtk/langlinks.ui` | `lib/wike/langlinks_panel.rb` | sidebar page | yes |
+| 14 | `src/langlinks.py` (`LanglinksRow`) + `data/gtk/langlinks-row.ui` | `lib/wike/langlinks_row.rb` | row | yes |
+| 15 | `src/langlinks.py` (`LanguagesFilter`) | `lib/wike/languages_filter.rb` | model object | yes |
+| 16 | `src/bookmarks.py` (`BookmarksPanel`) + `data/gtk/bookmarks.ui` | `lib/wike/bookmarks_panel.rb` | sidebar page | yes |
+| 17 | `src/bookmarks.py` (`BookmarksRow`) + `data/gtk/bookmarks-row.ui` | `lib/wike/bookmarks_row.rb` | row | yes |
+| 18 | `src/bookmarks.py` (`BookmarksMenuPopover`) + `data/gtk/bookmarks-menu.ui` | `lib/wike/bookmarks_menu_popover.rb` | menu | yes |
+| 19 | `src/bookmarks.py` (`Booklist`) | `lib/wike/booklist.rb` | model object | yes |
+| 20 | `src/history.py` (`HistoryPanel`) + `data/gtk/history.ui` | `lib/wike/history_panel.rb` | sidebar page | yes |
+| 21 | `src/history.py` (`HistoryRow`) + `data/gtk/history-row.ui` | `lib/wike/history_row.rb` | row | yes |
+| 22 | `src/history.py` (`HistoryFilter`) | `lib/wike/history_filter.rb` | model object | yes |
+| 23 | `src/languages.py` (`LanguagesDialog`) + `data/gtk/languages.ui` | `lib/wike/languages_dialog.rb` | dialog | yes |
+| 24 | `src/languages.py` (`LanguagesRow`) + `data/gtk/languages-row.ui` | `lib/wike/languages_row.rb` | row | yes |
+| 25 | `src/prefs.py` + `data/gtk/prefs.ui` | `lib/wike/prefs_dialog.rb` | preferences | yes |
+| 26 | `src/menu.py` (`MainMenuPopover`) + `data/gtk/menu-main.ui` | `lib/wike/main_menu_popover.rb` | menu | yes |
+| 27 | `src/menu.py` (`ArticleMenuPopover`) + `data/gtk/menu-article.ui` | `lib/wike/article_menu_popover.rb` | menu | yes |
+| 28 | `src/menu.py` (`ViewMenuPopover`) + `data/gtk/menu-view.ui` | `lib/wike/view_menu_popover.rb` | menu | yes |
+| 29 | `src/menu.py` (`ThemeSwitcher`) + `data/gtk/theme-switcher.ui` | `lib/wike/theme_switcher.rb` | widget | yes |
+| 30 | `src/menu.py` (`ZoomLevel`) + `data/gtk/zoom-level.ui` | `lib/wike/zoom_level.rb` | widget | yes |
+| 31 | `data/gtk/dialogs.ui` (6 dialogs) | `lib/wike/dialogs.rb` | dialogs | yes |
+| 32 | `data/gtk/about.ui` + `_about_cb` in `src/application.py` | `lib/wike/about_dialog.rb` | dialog | yes |
+| 33 | `data/gtk/shortcuts-dialog.ui` | `lib/wike/shortcuts_dialog.rb` | keyboard shortcuts | yes |
+| 34 | `src/data.py` + `data/com.github.hugolabe.Wike.gschema.xml` | `lib/wike/data.rb` | support (settings + stores) | yes |
+| 35 | `src/wikipedia.py` | `lib/wike/wikipedia.rb` | support (API client) | yes |
 | 36 | `src/wike-sp.in` + `data/*.SearchProvider.*` | `lib/wike/shell_search_provider.rb` | D-Bus search provider | no |
 
 Non-code assets that must travel with the port:
 
-| Upstream | Port | Kind |
-|---|---|---|
-| `data/gtk/style.css` | `lib/wike/style.rb` (CSS string → `Gtk::CssProvider`) | app stylesheet |
-| `data/gtk/style-sepia.css` | `lib/wike/sepia_style.rb` | app stylesheet (sepia theme) |
-| `data/styles/view.css`, `data/styles/sepia.css` | `data/styles/` + loader in `view_settings.rb` | WebKit user stylesheets |
-| `data/languages/languages.min.json` | `data/languages.json` | 300+ Wikipedia language names |
-| `data/icons/scalable/actions/*.svg` (17) | `data/icons/` | custom action icons |
-| `data/icons/scalable/emblems/*.svg` (148) | `data/icons/emblems/` | language flag icons |
-| `po/` (39 languages, 157 msgids) | `po/` | translation catalogue |
+| Upstream | Port | Kind | Exists |
+|---|---|---|---|
+| `data/gtk/style.css` | `lib/wike/style.rb` (CSS string → `Gtk::CssProvider`) | app stylesheet | yes |
+| `data/gtk/style-sepia.css` | `lib/wike/sepia_style.rb` | app stylesheet (sepia theme) | yes |
+| `data/styles/view.css`, `data/styles/sepia.css` | `data/styles/` + loader in `view_settings.rb` | WebKit user stylesheets | files yes, loader no |
+| `data/languages/languages.min.json` | `data/languages.json` | 300+ Wikipedia language names | yes |
+| `data/icons/scalable/actions/*.svg` (17) | `data/icons/hicolor/scalable/actions/` | custom action icons | yes (17) |
+| `data/icons/scalable/emblems/*.svg` (111) | `data/icons/hicolor/scalable/emblems/` | language flag icons | yes (111) |
+| `po/` (39 languages, 157 msgids) | `po/` | translation catalogue | yes (39) |
 
 ---
 
