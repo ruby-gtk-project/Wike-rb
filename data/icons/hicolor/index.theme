@@ -1,0 +1,25 @@
+[Icon Theme]
+Name=hicolor
+Comment=Wike application icons
+Directories=scalable/actions,scalable/emblems,scalable/apps
+
+[scalable/actions]
+Size=16
+Context=Actions
+Type=Scalable
+MinSize=8
+MaxSize=512
+
+[scalable/emblems]
+Size=16
+Context=Emblems
+Type=Scalable
+MinSize=8
+MaxSize=512
+
+[scalable/apps]
+Size=128
+Context=Applications
+Type=Scalable
+MinSize=8
+MaxSize=512

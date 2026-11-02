@@ -1,0 +1,659 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Wike\n"
+"Language: sv\n"
+
+#: ../src/view.py:293
+msgid "Article not found"
+msgstr "Ingen artikel hittades"
+
+#: ../src/page.py:217
+msgid "Can't find any results for requested query"
+msgstr "Kan inte hitta några resultat för frågan"
+
+#: ../src/view.py:295
+msgid "Can't access Wikipedia"
+msgstr "Kan inte ansluta till Wikipedia"
+
+#: ../src/page.py:225
+msgid "Check your Internet connection and try again"
+msgstr "Kontrollera din internetanslutning och försök igen"
+
+#: ../data/gtk/dialogs.ui:56
+msgid "Clear Bookmarks List?"
+msgstr "Vill du rensa bokmärkeslistan?"
+
+#: ../data/gtk/dialogs.ui:57
+msgid "All bookmarks in the list will be removed permanently."
+msgstr "Alla bokmärken i listan kommer att tas bort permanent."
+
+#: ../data/gtk/dialogs.ui:68
+msgid "Clear List"
+msgstr "Rensa listan"
+
+#: ../data/gtk/search-settings.ui:64
+msgid "Search Suggestions"
+msgstr "Sökförslag"
+
+#. Add your name like this:
+#. 
+#. Hugo Olabera <hugolabe@gmail.com>
+#: ../data/gtk/about.ui:17
+msgid "translator-credits"
+msgstr "Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
+"Luna Jernberg <lunajernberg@gnome.org>"
+
+#: ../src/view.py:388 ../data/gtk/bookmarks.ui:32
+msgid "Add Bookmark"
+msgstr "Lägg till bokmärke"
+
+#: ../data/gtk/help-overlay.ui:21
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Allmänt"
+
+#: ../data/gtk/help-overlay.ui:39
+msgctxt "shortcut window"
+msgid "Table of contents"
+msgstr "Innehållsförteckning"
+
+#: ../data/gtk/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Preferences"
+msgstr "Inställningar"
+
+#: ../data/gtk/help-overlay.ui:88
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Avsluta"
+
+#: ../data/gtk/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "Tangentbordsgenvägar"
+
+#: ../data/gtk/help-overlay.ui:164
+msgctxt "shortcut window"
+msgid "Navigation"
+msgstr "Navigation"
+
+#: ../data/gtk/help-overlay.ui:168
+msgctxt "shortcut window"
+msgid "Search articles"
+msgstr "Sök artiklar"
+
+#: ../data/gtk/help-overlay.ui:196
+msgctxt "shortcut window"
+msgid "Previous page"
+msgstr "Föregående sida"
+
+#: ../data/gtk/help-overlay.ui:203
+msgctxt "shortcut window"
+msgid "Next page"
+msgstr "Nästa sida"
+
+#: ../data/gtk/help-overlay.ui:99 ../data/gtk/help-overlay.ui:103
+msgctxt "shortcut window"
+msgid "Bookmarks"
+msgstr "Bokmärken"
+
+#: ../data/gtk/help-overlay.ui:110
+msgctxt "shortcut window"
+msgid "Add bookmark"
+msgstr "Lägg till bokmärke"
+
+#: ../data/gtk/menu-main.ui:15
+msgid "Preferences"
+msgstr "Inställningar"
+
+#: ../data/gtk/menu-main.ui:19
+msgid "Keyboard Shortcuts"
+msgstr "Tangentbordsgenvägar"
+
+#: ../data/gtk/menu-main.ui:23
+msgid "About Wike"
+msgstr "Om Wike"
+
+#: ../data/gtk/prefs.ui:23
+msgid "Behavior"
+msgstr "Beteende"
+
+#: ../data/gtk/prefs.ui:84
+msgid "Keep a List of Recent Articles"
+msgstr "Spara en lista över tidigare artiklar"
+
+#: ../data/gtk/window.ui:113 ../data/gtk/window.ui:229
+msgid "Languages"
+msgstr "Språk"
+
+#. Don't translate app name!
+#: ../data/com.github.hugolabe.Wike.desktop.in:3
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:7
+msgid "Wike"
+msgstr "Wike"
+
+#: ../data/gtk/about.ui:15 ../data/com.github.hugolabe.Wike.desktop.in:4
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:8
+msgid "Search and read Wikipedia articles"
+msgstr "Sök och läs Wikipedia-artiklar"
+
+#. Don't remove semicolons!
+#: ../data/com.github.hugolabe.Wike.desktop.in:12
+msgid "Wikipedia;Encyclopedia;"
+msgstr "Wikipedia;Encyclopedi;"
+
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:11
+msgid "Wike is a Wikipedia reader for the GNOME Desktop. Provides access to all the content of this online encyclopedia in a native application, with a simpler and distraction-free view of articles."
+msgstr "Wike är Wikipedia-läsare för GNOME-skrivbord. Ger tillgång till allt innehåll i denna online-encyklopedi i ett program med en enklare och distraktionsfri artikelvy."
+
+#: ../data/gtk/dialogs.ui:75
+msgid "The history of visited articles will be deleted permanently."
+msgstr "Historik för besökta artiklar kommer att tas bort permanent."
+
+#: ../data/gtk/dialogs.ui:87
+msgid "Clear Personal Data?"
+msgstr "Vill du rensa personlig data?"
+
+#: ../data/gtk/dialogs.ui:88
+msgid "Cookies and cache data will be deleted permanently."
+msgstr "Cookies och cachelagrad data kommer att tas bort permanent."
+
+#: ../data/gtk/dialogs.ui:94
+msgid "Clear Data"
+msgstr "Rensa data"
+
+#. Don't remove %s tag!
+#: ../src/wike-sp.in:90
+msgid "Search “%s” on Wikipedia"
+msgstr "Sök «%s» på Wikipedia"
+
+#: ../data/gtk/prefs.ui:28
+msgid "Home Page"
+msgstr "Hemsida"
+
+#: ../data/gtk/prefs.ui:29
+msgid "The page that will be displayed when Wike starts"
+msgstr "Sidan som visas när Wike startas"
+
+#: ../data/gtk/prefs.ui:57
+msgid "Privacy"
+msgstr "Integritet"
+
+#: ../data/gtk/prefs.ui:62
+msgid "Allow Live Search on Desktop"
+msgstr "Tillåt live-sökning på skrivbordet"
+
+#: ../data/gtk/prefs.ui:63
+msgid "Warning: all desktop searches will be sent to Wikipedia"
+msgstr "Varning! Alla skrivbordssökningar skickas till Wikipedia"
+
+#: ../data/gtk/prefs.ui:85
+msgid "Wike will remember the history of visited articles"
+msgstr "Historik för besökta artiklar kommer att sparas"
+
+#: ../data/gtk/prefs.ui:96 ../data/gtk/prefs.ui:119
+msgid "Clear"
+msgstr "Rensa"
+
+#: ../data/gtk/prefs.ui:108
+msgid "Cookies and cache data will be deleted"
+msgstr "Cookies och cachelagrad data kommer att tas bort"
+
+#: ../data/gtk/page-status.ui:50
+msgid "Try Again"
+msgstr "Försök igen"
+
+#: ../data/gtk/menu-article.ui:34 ../data/gtk/page-status.ui:39
+msgid "Random Article"
+msgstr "Slumpmässig artikel"
+
+#: ../data/gtk/prefs.ui:35
+msgid "Last article"
+msgstr "Senaste artikeln"
+
+#: ../data/gtk/window.ui:126 ../data/gtk/window.ui:239
+msgid "Bookmarks"
+msgstr "Bokmärken"
+
+#: ../data/gtk/languages.ui:80 ../data/gtk/bookmarks.ui:102
+#: ../data/gtk/history.ui:94
+msgid "Select All"
+msgstr "Markera alla"
+
+#: ../data/gtk/languages.ui:88 ../data/gtk/bookmarks.ui:110
+#: ../data/gtk/history.ui:102
+msgid "Select None"
+msgstr "Avmarkera alla"
+
+#: ../data/gtk/help-overlay.ui:25
+msgctxt "shortcut window"
+msgid "Main menu"
+msgstr "Huvudmeny"
+
+#: ../data/gtk/help-overlay.ui:121
+msgctxt "shortcut window"
+msgid "Tabs"
+msgstr "Flikar"
+
+#: ../data/gtk/help-overlay.ui:125
+msgctxt "shortcut window"
+msgid "New tab"
+msgstr "Ny flik"
+
+#: ../data/gtk/help-overlay.ui:132
+msgctxt "shortcut window"
+msgid "Close current tab"
+msgstr "Stäng aktuell flik"
+
+#: ../data/gtk/help-overlay.ui:139
+msgctxt "shortcut window"
+msgid "Next tab"
+msgstr "Nästa flik"
+
+#: ../data/gtk/help-overlay.ui:146
+msgctxt "shortcut window"
+msgid "Previous tab"
+msgstr "Föregående flik"
+
+#: ../src/view.py:400
+msgid "Open Link in New Tab"
+msgstr "Öppna länk i ny flik"
+
+#: ../src/view.py:406
+msgid "Add Link to Bookmarks"
+msgstr "Lägg till länk i Bokmärken"
+
+#: ../src/view.py:402
+msgid "Open Link in Browser"
+msgstr "Öppna länk i webbläsare"
+
+#: ../src/view.py:408 ../data/gtk/menu-article.ui:46
+msgid "Copy Link to Clipboard"
+msgstr "Kopiera länk till urklipp"
+
+#: ../data/gtk/prefs.ui:73
+msgid "Desktop searches are performed in the default language"
+msgstr "Skrivbordssökningar utförs på standardspråket"
+
+#: ../data/gtk/prefs.ui:74
+msgid "You can search in other languages ​​using a prefix. Eg. -es to search in Spanish"
+msgstr "Du kan söka på andra språk med hjälp av ett prefix. T.ex. -es för att söka på Spanska"
+
+#: ../data/gtk/help-overlay.ui:182
+msgctxt "shortcut window"
+msgid "Random article"
+msgstr "Slumpmässig artikel"
+
+#: ../src/menu.py:101
+msgid "Pick a Font"
+msgstr "Välj ett teckensnitt"
+
+#: ../src/menu.py:130
+msgid "Font"
+msgstr "Teckensnitt"
+
+#: ../src/history.py:35
+msgid "Today"
+msgstr "Idag"
+
+#: ../src/history.py:35
+msgid "Last 7 days"
+msgstr "Senaste 7 dagarna"
+
+#: ../src/history.py:35
+msgid "Last 30 days"
+msgstr "Senaste 30 dagarna"
+
+#: ../src/history.py:35
+msgid "Show full history"
+msgstr "Visa full historik"
+
+#: ../src/page.py:126 ../src/window.py:509
+msgid "Bookmark added: "
+msgstr "Bokmärke tillagt:␣"
+
+#: ../src/window.py:566
+msgid "Print operation completed"
+msgstr "Utskriftsåtgärden slutförd"
+
+#: ../src/window.py:572
+msgid "Print operation failed"
+msgstr "Utskriftsåtgärden misslyckades"
+
+#: ../src/window.py:587
+msgid "Link copied to clipboard"
+msgstr "Länken har kopierats till urklipp"
+
+#: ../src/application.py:154
+msgid "Source Code"
+msgstr "Källkod"
+
+#: ../src/application.py:155
+msgid "Report an Issue"
+msgstr "Rapportera ett problem"
+
+#: ../src/application.py:156
+msgid "Help Translating"
+msgstr "Hjälp oss att översätta"
+
+#: ../src/application.py:157
+msgid "Contributors"
+msgstr "Bidragsgivare"
+
+#: ../src/application.py:158
+msgid "Flag Icons"
+msgstr "Flaggikoner"
+
+#: ../src/application.py:159
+msgid "All content from Wikipedia.org and available under CC BY-SA 4.0 unless otherwise noted.\n"
+"\n"
+"Wike is an independent development not endorsed by or affiliated with the Wikimedia Foundation."
+msgstr "Allt innehåll från Wikipedia.org och tillgängligt under CC BY-SA 4.0 om inget annat anges.\n"
+"\n"
+"Wike är oberoende utvecklat och stöds inte av eller är anslutet till Wikimedia Foundation."
+
+#: ../src/page.py:88 ../src/page.py:91
+msgid "Loading…"
+msgstr "Laddar…"
+
+#: ../src/page.py:216
+msgid "Article not Found"
+msgstr "Artikel hittades inte"
+
+#: ../src/page.py:224
+msgid "Can't Access Wikipedia"
+msgstr "Kan inte komma åt Wikipedia"
+
+#: ../src/bookmarks.py:33
+msgid "Reading list"
+msgstr "Läslista"
+
+#: ../data/gtk/toc.ui:48
+msgid "No Contents"
+msgstr "Inget innehåll"
+
+#: ../data/gtk/toc.ui:49
+msgid "There is no table of contents for this page"
+msgstr "Det finns ingen innehållsförteckning för denna sida"
+
+#: ../data/gtk/languages.ui:11 ../data/gtk/search-settings.ui:23
+msgid "Pick your Languages"
+msgstr "Välj dina språk"
+
+#: ../data/gtk/help-overlay.ui:32
+msgctxt "shortcut window"
+msgid "Sidebar"
+msgstr "Sidofält"
+
+#: ../data/gtk/help-overlay.ui:46
+msgctxt "shortcut window"
+msgid "Languages"
+msgstr "Språk"
+
+#: ../data/gtk/help-overlay.ui:53
+msgctxt "shortcut window"
+msgid "Search text"
+msgstr "Sök text"
+
+#: ../data/gtk/help-overlay.ui:60
+msgctxt "shortcut window"
+msgid "Print"
+msgstr "Skriv ut"
+
+#: ../data/gtk/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Copy link to clipboard"
+msgstr "Kopiera länk till urklipp"
+
+#: ../data/gtk/help-overlay.ui:175
+msgctxt "shortcut window"
+msgid "Main page"
+msgstr "Huvudsida"
+
+#: ../data/gtk/help-overlay.ui:189
+msgctxt "shortcut window"
+msgid "History of recent articles"
+msgstr "Historik över senaste artiklar"
+
+#: ../data/gtk/help-overlay.ui:210
+msgctxt "shortcut window"
+msgid "Reload current page"
+msgstr "Ladda om nuvarande sida"
+
+#: ../src/page.py:232 ../data/gtk/search.ui:24 ../data/gtk/window.ui:87
+#: ../data/gtk/window.ui:210 ../data/gtk/window.ui:356
+msgid "Search Wikipedia"
+msgstr "Sök Wikipedia"
+
+#: ../data/gtk/dialogs.ui:12
+msgid "New Bookmarks List"
+msgstr "Ny bokmärkeslista"
+
+#: ../data/gtk/dialogs.ui:19 ../data/gtk/dialogs.ui:41
+msgid "List Name"
+msgstr "Listnamn"
+
+#: ../data/gtk/dialogs.ui:27 ../data/gtk/dialogs.ui:49
+#: ../data/gtk/dialogs.ui:67 ../data/gtk/dialogs.ui:80
+#: ../data/gtk/dialogs.ui:93
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: ../data/gtk/dialogs.ui:28
+msgid "Create List"
+msgstr "Skapa lista"
+
+#: ../data/gtk/dialogs.ui:34
+msgid "Rename Bookmarks List"
+msgstr "Byt namn på bokmärkeslista"
+
+#: ../data/gtk/dialogs.ui:50
+msgid "Rename List"
+msgstr "Byt namn på lista"
+
+#: ../data/gtk/dialogs.ui:63
+msgid "Also delete the list"
+msgstr "Radera även listan"
+
+#: ../data/gtk/dialogs.ui:74
+msgid "Clear History?"
+msgstr "Rensa historik?"
+
+#: ../data/gtk/dialogs.ui:81 ../data/gtk/history.ui:40
+msgid "Clear History"
+msgstr "Rensa historik"
+
+#: ../data/gtk/prefs.ui:33
+msgid "Wikipedia main page"
+msgstr "Wikipedia huvudsida"
+
+#: ../data/gtk/prefs.ui:34
+msgid "Random article"
+msgstr "Slumpmässig artikel"
+
+#: ../data/gtk/window.ui:322
+msgid "New Tab"
+msgstr "Ny flik"
+
+#: ../data/gtk/window.ui:348 ../data/gtk/window.ui:420
+msgid "View"
+msgstr "Visa"
+
+#: ../data/gtk/window.ui:155
+msgid "Sidebar"
+msgstr "Sidofält"
+
+#: ../data/gtk/page.ui:27
+msgid "Search text"
+msgstr "Sök text"
+
+#: ../src/page.py:233
+msgid "Start typing to search Wikipedia articles"
+msgstr "Börja skriva för att söka i Wikipedia-artiklar"
+
+#: ../data/gtk/menu-article.ui:30 ../data/gtk/page-status.ui:27
+msgid "Main Page"
+msgstr "Huvudsida"
+
+#: ../data/gtk/langlinks.ui:74
+msgid "No Languages"
+msgstr "Inga språk"
+
+#: ../data/gtk/langlinks.ui:75
+msgid "This page is not available in other languages"
+msgstr "Den här sidan är inte tillgänglig på andra språk"
+
+#: ../data/gtk/menu-view.ui:28
+msgid "Show"
+msgstr "Visa"
+
+#: ../data/gtk/menu-view.ui:30
+msgid "Language Flags"
+msgstr "Språkflaggor"
+
+#: ../data/gtk/menu-view.ui:34
+msgid "Link Previews"
+msgstr "Länkförhandsvisningar"
+
+#: ../data/gtk/history.ui:65
+msgid "Empty History"
+msgstr "Töm historik"
+
+#: ../data/gtk/history.ui:66
+msgid "There are no recent articles in the history"
+msgstr "Det finns inga nyare artiklar i historiken"
+
+#: ../data/gtk/bookmarks.ui:73
+msgid "No Bookmarks"
+msgstr "Inga bokmärken"
+
+#: ../data/gtk/bookmarks.ui:74
+msgid "Use the Add Bookmark button or press Ctrl+D to add the current article to the list"
+msgstr "Använd knappen lägg till bokmärke eller tryck på Ctrl+D för att lägga till den aktuella artikeln till listan"
+
+#: ../data/gtk/window.ui:100 ../data/gtk/window.ui:219
+msgid "Contents"
+msgstr "Innehåll"
+
+#: ../data/gtk/window.ui:139 ../data/gtk/window.ui:249
+msgid "History"
+msgstr "Historik"
+
+#: ../data/gtk/menu-article.ui:16
+msgid "Print"
+msgstr "Skriv ut"
+
+#: ../data/gtk/menu-article.ui:21
+msgid "Search Text"
+msgstr "Sök text"
+
+#: ../data/gtk/menu-article.ui:42
+msgid "Open in Browser"
+msgstr "Öppna i webbläsare"
+
+#: ../data/gtk/bookmarks-menu.ui:14
+msgid "Create New List…"
+msgstr "Skapa ny lista..."
+
+#: ../data/gtk/bookmarks-menu.ui:21
+msgid "Rename List…"
+msgstr "Byt namn på lista..."
+
+#: ../data/gtk/bookmarks-menu.ui:25
+msgid "Clear List…"
+msgstr "Rensa lista..."
+
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:16
+msgid "It supports more than 300 languages and integrates with desktop searches, providing suggestions that make it easier to find any content. Other features are: bookmarks with multiple lists, article table of contents, history, text searches and much more…"
+msgstr "Det stöder mer än 300 språk och integreras med skrivbordssökningar och ger förslag som gör det lättare att hitta allt innehåll. Andra funktioner är: bokmärken med flera listor, artikelinnehållsförteckning, historik, textsökningar och mycket mer ..."
+
+#: ../data/gtk/window.ui:304
+msgid "Back"
+msgstr "Bakåt"
+
+#: ../data/gtk/window.ui:313
+msgid "Forward"
+msgstr "Framåt"
+
+#: ../data/gtk/window.ui:61 ../data/gtk/window.ui:262
+msgid "Main Menu"
+msgstr "Huvudmeny"
+
+#: ../data/gtk/help-overlay.ui:153
+msgctxt "shortcut window"
+msgid "View open tabs"
+msgstr "Visa öppna flikar"
+
+#: ../data/gtk/prefs.ui:36
+msgid "Restore open articles"
+msgstr "Återställ öppna artiklar"
+
+#: ../data/gtk/prefs.ui:107
+msgid "Clear Personal Data on Close"
+msgstr "Rensa personlig data vid stängning"
+
+#: ../data/gtk/window.ui:340 ../data/gtk/window.ui:412
+msgid "Article Menu"
+msgstr "Artikelmeny"
+
+#: ../src/langlinks.py:32
+msgid "Your languages"
+msgstr "Dina språk"
+
+#: ../src/langlinks.py:33
+msgid "All languages"
+msgstr "Alla språk"
+
+#: ../src/langlinks.py:109
+msgid "Other languages"
+msgstr "Andra språk"
+
+#: ../src/languages.py:120
+msgid "1 language selected"
+msgstr "1 språk valt"
+
+#. Don't remove %s tag!
+#: ../src/languages.py:122
+msgid "%s languages selected"
+msgstr "%s språk valda"
+
+#: ../data/gtk/languages.ui:28 ../data/gtk/langlinks.ui:32
+msgid "Search Languages"
+msgstr "Sök språk"
+
+#: ../data/gtk/languages.ui:43 ../data/gtk/langlinks.ui:48
+msgid "Search languages"
+msgstr "Sök språk"
+
+#: ../data/gtk/bookmarks.ui:41 ../data/gtk/history.ui:32
+msgid "Select"
+msgstr "Välj"
+
+#: ../data/gtk/bookmarks.ui:118 ../data/gtk/history.ui:110
+msgid "Remove Selected"
+msgstr "Ta bort valda"
+
+#: ../data/gtk/prefs.ui:46
+msgid "Always Hide Tabs"
+msgstr "Dölj alltid flikar"
+
+#: ../data/gtk/prefs.ui:47
+msgid "The tab bar will also be hidden in desktop mode"
+msgstr "Flikfältet kommer också att döljas i skrivbordsläge"
+
+#: ../data/gtk/search.ui:59
+msgid "No Results"
+msgstr "Inga resultat"
+
+#: ../data/gtk/search.ui:60
+msgid "Enter at least three characters to get search suggestions"
+msgstr "Ange minst tre tecken för att få sökförslag"
+
+#: ../data/gtk/window.ui:197
+msgid "Close"
+msgstr "Stäng"
+

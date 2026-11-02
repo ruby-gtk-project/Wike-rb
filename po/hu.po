@@ -1,0 +1,679 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Wike\n"
+"Language: hu\n"
+
+#: ../src/view.py:310
+msgid "Article not found"
+msgstr "A szócikk nem található"
+
+#: ../src/page.py:238
+msgid "Can’t find any results for requested query"
+msgstr "Nem található egyezés a beírt kulcsszavakra"
+
+#: ../src/view.py:312
+msgid "Can’t access Wikipedia"
+msgstr "Nem lehet elérni a Wikipédiát"
+
+#: ../src/page.py:246
+msgid "Check your Internet connection and try again"
+msgstr "Ellenőrizze az internetkapcsolatot, és próbálja újra"
+
+#: ../data/gtk/dialogs.ui:56
+msgid "Clear Bookmarks List?"
+msgstr "Törli a könyvjelzők listáját?"
+
+#: ../data/gtk/dialogs.ui:57
+msgid "All bookmarks in the list will be removed permanently."
+msgstr "A lista összes könyvjelzője örökre törlődik."
+
+#: ../data/gtk/dialogs.ui:67
+msgid "Clear List"
+msgstr "Lista törlése"
+
+#: ../data/gtk/search-settings.ui:64
+msgid "Search Suggestions"
+msgstr "Keresési kavaslatok"
+
+#. Add your name like this:
+#. 
+#. Hugo Olabera <hugolabe@gmail.com>
+#: ../data/gtk/about.ui:17
+msgid "translator-credits"
+msgstr "Levente Kis <breadripper@proton.me>"
+
+#: ../src/view.py:405 ../data/gtk/bookmarks.ui:32
+msgid "Add Bookmark"
+msgstr "Könyvjelző hozzáadása"
+
+#: ../data/gtk/menu-main.ui:15
+msgid "Preferences"
+msgstr "Beállítások"
+
+#: ../data/gtk/menu-main.ui:19
+msgid "Keyboard Shortcuts"
+msgstr "Gyorsbillentyűk"
+
+#: ../data/gtk/menu-main.ui:23
+msgid "About Wike"
+msgstr "A Wike névjegye"
+
+#: ../data/gtk/prefs.ui:21
+msgid "Behavior"
+msgstr "Viselkedés"
+
+#: ../data/gtk/prefs.ui:82
+msgid "Keep a List of Recent Articles"
+msgstr "Vezessen listát a nemrég látogatott cikkekről"
+
+#: ../data/gtk/window.ui:113 ../data/gtk/window.ui:229
+msgid "Languages"
+msgstr "Nyelvek"
+
+#. Don't translate app name!
+#: ../data/com.github.hugolabe.Wike.desktop.in:2
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:7
+msgid "Wike"
+msgstr "Wike"
+
+#: ../data/gtk/about.ui:15 ../data/com.github.hugolabe.Wike.desktop.in:3
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:8
+msgid "Search and read Wikipedia articles"
+msgstr "Keressen és olvasson Wikipédia szócikkeket"
+
+#. Don't remove semicolons!
+#: ../data/com.github.hugolabe.Wike.desktop.in:12
+msgid "Wikipedia;Encyclopedia;"
+msgstr "Wikipédia;Enciklopédia;"
+
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:11
+msgid "Wike is a Wikipedia reader for the GNOME Desktop. Provides access to all the content of this online encyclopedia in a native application, with a simpler and distraction-free view of articles."
+msgstr "A Wike egy Wikipédia olvasó a GNOME asztali környezethez. Hozzáférést enged az online enciklopédia összes tartalmához egy natív applikációban, a cikkek egyszerűbb olvasása érdekében, figyelem-elterelések nélkül."
+
+#: ../data/gtk/dialogs.ui:74
+msgid "The history of visited articles will be deleted permanently."
+msgstr "A meglátogatott szócikkek listája örökre törlődni fog."
+
+#: ../data/gtk/dialogs.ui:85
+msgid "Clear Personal Data?"
+msgstr "Törli a személyes adatokat?"
+
+#: ../data/gtk/dialogs.ui:86
+msgid "Cookies and cache data will be deleted permanently."
+msgstr "A sütik és a gyorsítótár örökre törlődni fognak."
+
+#: ../data/gtk/dialogs.ui:91
+msgid "Clear Data"
+msgstr "Adatok törlése"
+
+#. Don't remove %s tag!
+#: ../src/wike-sp.in:90
+msgid "Search “%s” on Wikipedia"
+msgstr "Keressen a(z) “%s” kifejezésre a Wikipédián"
+
+#: ../data/gtk/prefs.ui:26
+msgid "Home Page"
+msgstr "Kezdőlap"
+
+#: ../data/gtk/prefs.ui:27
+msgid "The page that will be displayed when Wike starts"
+msgstr "A lap, ami meg fog nyílni a Wike indításakor"
+
+#: ../data/gtk/prefs.ui:55
+msgid "Privacy"
+msgstr "Adatvédelem"
+
+#: ../data/gtk/prefs.ui:60
+msgid "Allow Live Search on Desktop"
+msgstr "Élő keresés engedélyezése az asztalon"
+
+#: ../data/gtk/prefs.ui:61
+msgid "Warning: all desktop searches will be sent to Wikipedia"
+msgstr "Figyelmeztetés: az összes asztali keresés el lesz küldve a Wikipédiának"
+
+#: ../data/gtk/prefs.ui:83
+msgid "Wike will remember the history of visited articles"
+msgstr "A Wike meg fogja jegyezni a meglátogatott szócikkek listáját"
+
+#: ../data/gtk/prefs.ui:94 ../data/gtk/prefs.ui:117
+msgid "Clear"
+msgstr "Törlés"
+
+#: ../data/gtk/prefs.ui:106
+msgid "Cookies and cache data will be deleted"
+msgstr "A sütik és a gyorsítótár törlődni fognak"
+
+#: ../data/gtk/page-status.ui:53
+msgid "Try Again"
+msgstr "Próbálja újra"
+
+#: ../data/gtk/menu-article.ui:34 ../data/gtk/page-status.ui:42
+msgid "Random Article"
+msgstr "Véletlenszerű szócikk"
+
+#: ../data/gtk/prefs.ui:33
+msgid "Last article"
+msgstr "Utolsó szócikk"
+
+#: ../data/gtk/window.ui:126 ../data/gtk/window.ui:239
+msgid "Bookmarks"
+msgstr "Könyvjelzők"
+
+#: ../data/gtk/bookmarks.ui:102 ../data/gtk/history.ui:94
+#: ../data/gtk/languages.ui:79
+msgid "Select All"
+msgstr "Összes kijelölése"
+
+#: ../data/gtk/bookmarks.ui:110 ../data/gtk/history.ui:102
+#: ../data/gtk/languages.ui:87
+msgid "Select None"
+msgstr "Kijelölés törlése"
+
+#: ../src/view.py:417
+msgid "Open Link in New Tab"
+msgstr "Link megnyitása új lapon"
+
+#: ../src/view.py:423
+msgid "Add Link to Bookmarks"
+msgstr "Link hozzáadása a könyvjelzőkhöz"
+
+#: ../src/view.py:419
+msgid "Open Link in Browser"
+msgstr "Link megnyitása böngészőben"
+
+#: ../src/view.py:425 ../data/gtk/menu-article.ui:50
+msgid "Copy Link to Clipboard"
+msgstr "Link másolása vágólapra"
+
+#: ../data/gtk/prefs.ui:71
+msgid "Desktop searches are performed in the default language"
+msgstr "Az asztali keresés az alapértelmezett nyelven történik"
+
+#: ../data/gtk/prefs.ui:72
+msgid "You can search in other languages ​​using a prefix. Eg. -es to search in Spanish"
+msgstr "Más nyelveken is tud keresni egy előtaggal. Pl. -es a spanyol nyelvű kereséshez"
+
+#: ../src/menu.py:101
+msgid "Pick a Font"
+msgstr "Válasszon egy betűtípust"
+
+#: ../src/menu.py:130
+msgid "Font"
+msgstr "Betűtípus"
+
+#: ../src/history.py:35
+msgid "Today"
+msgstr "Ma"
+
+#: ../src/history.py:35
+msgid "Last 7 days"
+msgstr "Az utóbbi 7 napban"
+
+#: ../src/history.py:35
+msgid "Last 30 days"
+msgstr "Az utóbbi 30 napban"
+
+#: ../src/history.py:35
+msgid "Show full history"
+msgstr "Az összes előzmény megjelenítése"
+
+#: ../src/window.py:510 ../src/page.py:147
+msgid "Bookmark added: "
+msgstr "Könyvjelző hozzáadva: "
+
+#: ../src/window.py:607
+msgid "Print operation completed"
+msgstr "A nyomtatás kész"
+
+#: ../src/window.py:613
+msgid "Print operation failed"
+msgstr "A nyomtatás sikertelen"
+
+#: ../src/window.py:630
+msgid "Link copied to clipboard"
+msgstr "Link vágólapra másolva"
+
+#: ../src/application.py:151
+msgid "Source Code"
+msgstr "Forráskód"
+
+#: ../src/application.py:152
+msgid "Report an Issue"
+msgstr "Hiba jelentése"
+
+#: ../src/application.py:153
+msgid "Help Translating"
+msgstr "Segítsen fordítani"
+
+#: ../src/application.py:154
+msgid "Contributors"
+msgstr "Készítők"
+
+#: ../src/application.py:155
+msgid "Flag Icons"
+msgstr "Zászlóikonok"
+
+#: ../src/application.py:156
+msgid "All content from Wikipedia.org and available under CC BY-SA 4.0 unless otherwise noted.\n"
+"\n"
+"Wike is an independent development not endorsed by or affiliated with the Wikimedia Foundation."
+msgstr "Minden tartalom a Wikipedia.org-ról a CC BY-SA 4.0 licenc alatt elérhető, amennyiben nincs jelezve másként.\n"
+"\n"
+"A Wike egy független fejlesztés, amelyet nem támogat, és amivel nem is áll kapcsolatban a Wikimédia Alapítvány."
+
+#: ../src/page.py:99 ../src/page.py:102
+msgid "Loading…"
+msgstr "Betöltés…"
+
+#: ../src/page.py:237
+msgid "Article not Found"
+msgstr "Szócikk nem található"
+
+#: ../src/page.py:245
+msgid "Can’t Access Wikipedia"
+msgstr "A Wikipédia nem elérhető"
+
+#: ../src/bookmarks.py:33
+msgid "Reading list"
+msgstr "Olvasási lista"
+
+#: ../data/gtk/toc.ui:48
+msgid "No Contents"
+msgstr "Nincs tartalomjegyzék"
+
+#: ../data/gtk/toc.ui:49
+msgid "There is no table of contents for this page"
+msgstr "Ehhez az oldalhoz nincs tartalomjegyzék"
+
+#: ../data/gtk/languages.ui:11 ../data/gtk/search-settings.ui:23
+msgid "Pick your Languages"
+msgstr "Válassza ki a nyelveit"
+
+#: ../data/gtk/shortcuts-dialog.ui:40
+msgctxt "shortcut window"
+msgid "Languages"
+msgstr "Nyelvek"
+
+#: ../data/gtk/shortcuts-dialog.ui:47
+msgctxt "shortcut window"
+msgid "Search text"
+msgstr "Szöveg keresése"
+
+#: ../data/gtk/shortcuts-dialog.ui:54
+msgctxt "shortcut window"
+msgid "Print"
+msgstr "Nyomtatás"
+
+#: ../data/gtk/shortcuts-dialog.ui:61
+msgctxt "shortcut window"
+msgid "Copy link to clipboard"
+msgstr "Link vágólapra másolása"
+
+#: ../data/gtk/shortcuts-dialog.ui:169
+msgctxt "shortcut window"
+msgid "Main page"
+msgstr "Főoldal"
+
+#: ../data/gtk/shortcuts-dialog.ui:190
+msgctxt "shortcut window"
+msgid "History of recent articles"
+msgstr "Előzmények"
+
+#: ../data/gtk/shortcuts-dialog.ui:211
+msgctxt "shortcut window"
+msgid "Reload current page"
+msgstr "Jelenlegi oldal újratöltése"
+
+#: ../src/page.py:253 ../data/gtk/search.ui:24 ../data/gtk/window.ui:87
+#: ../data/gtk/window.ui:210 ../data/gtk/window.ui:356
+msgid "Search Wikipedia"
+msgstr "Keresés a Wikipédián"
+
+#: ../data/gtk/dialogs.ui:12
+msgid "New Bookmarks List"
+msgstr "Új könyvjelzőlista"
+
+#: ../data/gtk/dialogs.ui:20 ../data/gtk/dialogs.ui:42
+msgid "List Name"
+msgstr "Lista neve"
+
+#: ../data/gtk/dialogs.ui:27 ../data/gtk/dialogs.ui:49
+#: ../data/gtk/dialogs.ui:66 ../data/gtk/dialogs.ui:78
+#: ../data/gtk/dialogs.ui:90
+msgid "Cancel"
+msgstr "Mégse"
+
+#: ../data/gtk/dialogs.ui:28
+msgid "Create List"
+msgstr "Lista létrehozása"
+
+#: ../data/gtk/dialogs.ui:34
+msgid "Rename Bookmarks List"
+msgstr "Könyvjelzőlista átnevezése"
+
+#: ../data/gtk/dialogs.ui:50
+msgid "Rename List"
+msgstr "Lista átnevezése"
+
+#: ../data/gtk/dialogs.ui:62
+msgid "Also delete the list"
+msgstr "A listát is törölje"
+
+#: ../data/gtk/dialogs.ui:73
+msgid "Clear History?"
+msgstr "Törli az előzményeket?"
+
+#: ../data/gtk/history.ui:40 ../data/gtk/dialogs.ui:79
+msgid "Clear History"
+msgstr "Előzmények törlése"
+
+#: ../data/gtk/prefs.ui:31
+msgid "Wikipedia main page"
+msgstr "Wikipédia főoldala"
+
+#: ../data/gtk/prefs.ui:32
+msgid "Random article"
+msgstr "Véletlenszerű szócikk"
+
+#: ../data/gtk/window.ui:322
+msgid "New Tab"
+msgstr "Új lap"
+
+#: ../data/gtk/window.ui:348 ../data/gtk/window.ui:420
+msgid "View"
+msgstr "Nézet"
+
+#: ../data/gtk/window.ui:155
+msgid "Sidebar"
+msgstr "Oldalsáv"
+
+#: ../data/gtk/page.ui:27
+msgid "Search text"
+msgstr "Szöveg keresése"
+
+#: ../src/page.py:254
+msgid "Start typing to search Wikipedia articles"
+msgstr "Kezdjen el gépelni a Wikipédia szócikkek kereséséhez"
+
+#: ../data/gtk/menu-article.ui:30 ../data/gtk/page-status.ui:30
+msgid "Main Page"
+msgstr "Főoldal"
+
+#: ../data/gtk/langlinks.ui:74
+msgid "No Languages"
+msgstr "Nincsenek nyelvek"
+
+#: ../data/gtk/langlinks.ui:75
+msgid "This page is not available in other languages"
+msgstr "Ez az oldal nem érhető el más nyelveken"
+
+#: ../data/gtk/menu-view.ui:28
+msgid "Show"
+msgstr "Megjelenítés"
+
+#: ../data/gtk/menu-view.ui:30
+msgid "Language Flags"
+msgstr "Nyelvzászlók"
+
+#: ../data/gtk/menu-view.ui:34
+msgid "Link Previews"
+msgstr "Link előnézetek"
+
+#: ../data/gtk/history.ui:65
+msgid "Empty History"
+msgstr "Nincsenek előzmények"
+
+#: ../data/gtk/history.ui:66
+msgid "There are no recent articles in the history"
+msgstr "Nincsenek friss szócikkek az előzményekben"
+
+#: ../data/gtk/bookmarks.ui:73
+msgid "No Bookmarks"
+msgstr "Nincsenek könyvjelzők"
+
+#: ../data/gtk/bookmarks.ui:74
+msgid "Use the Add Bookmark button or press Ctrl+D to add the current article to the list"
+msgstr "Használja a Könyvjelző hozzáadása gombot, vagy nyomja meg a Ctrl+D billentyűkombinációt, hogy a jelenlegi szócikket hozzáadja a listához"
+
+#: ../data/gtk/window.ui:100 ../data/gtk/window.ui:219
+msgid "Contents"
+msgstr "Tartalomjegyzék"
+
+#: ../data/gtk/window.ui:139 ../data/gtk/window.ui:249
+msgid "History"
+msgstr "Előzmények"
+
+#: ../data/gtk/menu-article.ui:16
+msgid "Print"
+msgstr "Nyomtatás"
+
+#: ../data/gtk/menu-article.ui:21
+msgid "Search Text"
+msgstr "Szöveg keresése"
+
+#: ../data/gtk/menu-article.ui:46
+msgid "Open in Browser"
+msgstr "Megnyitás böngészőben"
+
+#: ../data/gtk/bookmarks-menu.ui:14
+msgid "Create New List…"
+msgstr "Új lista létrehozása"
+
+#: ../data/gtk/bookmarks-menu.ui:21
+msgid "Rename List…"
+msgstr "Lista átnevezése"
+
+#: ../data/gtk/bookmarks-menu.ui:25
+msgid "Clear List…"
+msgstr "Lista törlése"
+
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:16
+msgid "It supports more than 300 languages and integrates with desktop searches, providing suggestions that make it easier to find any content. Other features are: bookmarks with multiple lists, article table of contents, history, text searches and much more…"
+msgstr "Több mint 300 nyelvet támogat, és integrálva van az asztali keresésbe, hogy olyan javaslatokat adjon, amik könnyebbé teszik, hogy bármilyen tartalmat megtaláljon. Egyéb funkciók: könyvjelzők több listával, a szócikkek tartalomjegyzékei, előzmények, cikken belüli szövegkeresés és még sok más…"
+
+#: ../data/gtk/window.ui:304
+msgid "Back"
+msgstr "Vissza"
+
+#: ../data/gtk/window.ui:313
+msgid "Forward"
+msgstr "Előre"
+
+#: ../data/gtk/window.ui:61 ../data/gtk/window.ui:262
+msgid "Main Menu"
+msgstr "Főmenü"
+
+#: ../data/gtk/shortcuts-dialog.ui:147
+msgctxt "shortcut window"
+msgid "View open tabs"
+msgstr "Megnyitott lapok megjelenítése"
+
+#: ../data/gtk/prefs.ui:34
+msgid "Restore open articles"
+msgstr "Megnyitott szócikkek visszaállítása"
+
+#: ../data/gtk/prefs.ui:105
+msgid "Clear Personal Data on Close"
+msgstr "Személyes adatok törlése bezáráskor"
+
+#: ../data/gtk/window.ui:340 ../data/gtk/window.ui:412
+msgid "Article Menu"
+msgstr "Szócikk menü"
+
+#: ../src/langlinks.py:32
+msgid "Your languages"
+msgstr "Ön nyelvei"
+
+#: ../src/langlinks.py:33
+msgid "All languages"
+msgstr "Az összes nyelv"
+
+#: ../src/langlinks.py:109
+msgid "Other languages"
+msgstr "Egyéb nyelvek"
+
+#: ../src/languages.py:122
+msgid "1 language selected"
+msgstr "1 nyelv kiválasztva"
+
+#. Don't remove %s tag!
+#: ../src/languages.py:124
+msgid "%s languages selected"
+msgstr "%s nyelv kiválasztva"
+
+#: ../data/gtk/langlinks.ui:32 ../data/gtk/languages.ui:27
+msgid "Search Languages"
+msgstr "Nyelvek keresése"
+
+#: ../data/gtk/langlinks.ui:48 ../data/gtk/languages.ui:42
+msgid "Search languages"
+msgstr "Nyelvek keresése"
+
+#: ../data/gtk/bookmarks.ui:41 ../data/gtk/history.ui:32
+msgid "Select"
+msgstr "Kijelölés"
+
+#: ../data/gtk/bookmarks.ui:118 ../data/gtk/history.ui:110
+msgid "Remove Selected"
+msgstr "Kijelöltek törlése"
+
+#: ../data/gtk/prefs.ui:44
+msgid "Always Hide Tabs"
+msgstr "Lapok elrejtése mindig"
+
+#: ../data/gtk/prefs.ui:45
+msgid "The tab bar will also be hidden in desktop mode"
+msgstr "A lapsáv is el lesz rejtve asztali módban"
+
+#: ../data/gtk/search.ui:59
+msgid "No Results"
+msgstr "Nincs találat"
+
+#: ../data/gtk/search.ui:60
+msgid "Enter at least three characters to get search suggestions"
+msgstr "Gépeljen be legalább három karaktert, hogy keresési javaslatokat kapjon"
+
+#: ../data/gtk/window.ui:197
+msgid "Close"
+msgstr "Bezárás"
+
+#: ../data/gtk/page.ui:35
+msgid "Previous Result"
+msgstr "Előző találat"
+
+#: ../data/gtk/page.ui:44
+msgid "Next Result"
+msgstr "Következő találat"
+
+#: ../data/gtk/dialogs.ui:116
+msgid "Wikipedia Link"
+msgstr "Wikipédia link"
+
+#: ../data/gtk/shortcuts-dialog.ui:15
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Általános"
+
+#: ../data/gtk/shortcuts-dialog.ui:19
+msgctxt "shortcut window"
+msgid "Main menu"
+msgstr "Főmenü"
+
+#: ../data/gtk/shortcuts-dialog.ui:26
+msgctxt "shortcut window"
+msgid "Sidebar"
+msgstr "Oldalsáv"
+
+#: ../data/gtk/shortcuts-dialog.ui:33
+msgctxt "shortcut window"
+msgid "Table of contents"
+msgstr "Tartalomjegyzék"
+
+#: ../data/gtk/shortcuts-dialog.ui:68
+msgctxt "shortcut window"
+msgid "Preferences"
+msgstr "Beállítások"
+
+#: ../data/gtk/shortcuts-dialog.ui:75
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "Gyorsbillentyűk"
+
+#: ../data/gtk/shortcuts-dialog.ui:82
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Kilépés"
+
+#: ../data/gtk/shortcuts-dialog.ui:93 ../data/gtk/shortcuts-dialog.ui:97
+msgctxt "shortcut window"
+msgid "Bookmarks"
+msgstr "Könyvjelzők"
+
+#: ../data/gtk/shortcuts-dialog.ui:104
+msgctxt "shortcut window"
+msgid "Add bookmark"
+msgstr "Könyvjelző hozzáadása"
+
+#: ../data/gtk/shortcuts-dialog.ui:115
+msgctxt "shortcut window"
+msgid "Tabs"
+msgstr "Lapok"
+
+#: ../data/gtk/shortcuts-dialog.ui:119
+msgctxt "shortcut window"
+msgid "New tab"
+msgstr "Új lap"
+
+#: ../data/gtk/shortcuts-dialog.ui:126
+msgctxt "shortcut window"
+msgid "Close current tab"
+msgstr "Jelenlegi lap bezárása"
+
+#: ../data/gtk/shortcuts-dialog.ui:133
+msgctxt "shortcut window"
+msgid "Next tab"
+msgstr "Következő lap"
+
+#: ../data/gtk/shortcuts-dialog.ui:140
+msgctxt "shortcut window"
+msgid "Previous tab"
+msgstr "Előző lap"
+
+#: ../data/gtk/shortcuts-dialog.ui:158
+msgctxt "shortcut window"
+msgid "Navigation"
+msgstr "Navigáció"
+
+#: ../data/gtk/shortcuts-dialog.ui:162
+msgctxt "shortcut window"
+msgid "Search articles"
+msgstr "Szócikkek keresése"
+
+#: ../data/gtk/shortcuts-dialog.ui:176
+msgctxt "shortcut window"
+msgid "Random article"
+msgstr "Véletlenszerű szócikk"
+
+#: ../data/gtk/shortcuts-dialog.ui:197
+msgctxt "shortcut window"
+msgid "Previous page"
+msgstr "Előző lap"
+
+#: ../data/gtk/shortcuts-dialog.ui:204
+msgctxt "shortcut window"
+msgid "Next page"
+msgstr "Következő lap"
+
+#: ../data/gtk/dialogs.ui:97 ../data/gtk/menu-article.ui:38
+msgid "Open Wikipedia Link"
+msgstr "Wikipédia link megnyitása"
+
+#: ../data/gtk/shortcuts-dialog.ui:183
+msgctxt "shortcut window"
+msgid "Open Wikipedia link"
+msgstr "Wikipédia link megnyitása"
+

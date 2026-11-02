@@ -1,0 +1,679 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Wike\n"
+"Language: vi\n"
+
+#: ../src/view.py:310
+msgid "Article not found"
+msgstr "Không thấy bài viết"
+
+#: ../src/page.py:238
+msgid "Can’t find any results for requested query"
+msgstr "Tìm kiếm không trả về kết quả nào"
+
+#: ../src/view.py:312
+msgid "Can’t access Wikipedia"
+msgstr "Không thể truy cập Wikipedia"
+
+#: ../src/page.py:246
+msgid "Check your Internet connection and try again"
+msgstr "Kiểm tra đường truyền internet rồi thử lại"
+
+#: ../data/gtk/dialogs.ui:56
+msgid "Clear Bookmarks List?"
+msgstr "Xoá danh sách các dấu trang"
+
+#: ../data/gtk/dialogs.ui:57
+msgid "All bookmarks in the list will be removed permanently."
+msgstr "Tất cả dấu trang trong đây sẽ bị xoá vĩnh viễn."
+
+#: ../data/gtk/dialogs.ui:67
+msgid "Clear List"
+msgstr "Xoá danh sách"
+
+#: ../data/gtk/search-settings.ui:64
+msgid "Search Suggestions"
+msgstr "Gợi ý"
+
+#. Add your name like this:
+#. 
+#. Hugo Olabera <hugolabe@gmail.com>
+#: ../data/gtk/about.ui:17
+msgid "translator-credits"
+msgstr "Kinten Le <kinten108101@protonmail.com>"
+
+#: ../src/view.py:405 ../data/gtk/bookmarks.ui:32
+msgid "Add Bookmark"
+msgstr "Làm dấu trang"
+
+#: ../data/gtk/menu-main.ui:15
+msgid "Preferences"
+msgstr "Tùy thích"
+
+#: ../data/gtk/menu-main.ui:19
+msgid "Keyboard Shortcuts"
+msgstr "Phím tắt"
+
+#: ../data/gtk/menu-main.ui:23
+msgid "About Wike"
+msgstr "Giới thiệu Wike"
+
+#: ../data/gtk/prefs.ui:21
+msgid "Behavior"
+msgstr "Hành vi"
+
+#: ../data/gtk/prefs.ui:82
+msgid "Keep a List of Recent Articles"
+msgstr "Ghi nhớ các bài viết gần đây"
+
+#: ../data/gtk/window.ui:113 ../data/gtk/window.ui:229
+msgid "Languages"
+msgstr "Ngôn ngữ"
+
+#. Don't translate app name!
+#: ../data/com.github.hugolabe.Wike.desktop.in:2
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:7
+msgid "Wike"
+msgstr "Wike"
+
+#: ../data/gtk/about.ui:15 ../data/com.github.hugolabe.Wike.desktop.in:3
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:8
+msgid "Search and read Wikipedia articles"
+msgstr "Tìm và đọc các bài viết trên Wikipedia"
+
+#. Don't remove semicolons!
+#: ../data/com.github.hugolabe.Wike.desktop.in:12
+msgid "Wikipedia;Encyclopedia;"
+msgstr "Wikipedia;Bách khoa toàn thư;"
+
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:11
+msgid "Wike is a Wikipedia reader for the GNOME Desktop. Provides access to all the content of this online encyclopedia in a native application, with a simpler and distraction-free view of articles."
+msgstr "Wike là trình đọc Wikipedia trên hệ desktop GNOME. Thông qua Wike, bạn có thể truy cập bộ bách khoa toàn thư online này trong một môi trường ứng dụng native, các bài viết được trình bày đơn giản hơn so với bản web và tránh phiền nhiễu."
+
+#: ../data/gtk/dialogs.ui:74
+msgid "The history of visited articles will be deleted permanently."
+msgstr "Lịch sử đọc bài viết sẽ bị xoá vĩnh viễn."
+
+#: ../data/gtk/dialogs.ui:85
+msgid "Clear Personal Data?"
+msgstr "Xoá dữ liệu cá nhân?"
+
+#: ../data/gtk/dialogs.ui:86
+msgid "Cookies and cache data will be deleted permanently."
+msgstr "Dữ liệu cookie và cache sẽ bị xoá vĩnh viễn."
+
+#: ../data/gtk/dialogs.ui:91
+msgid "Clear Data"
+msgstr "Xoá dữ liệu"
+
+#. Don't remove %s tag!
+#: ../src/wike-sp.in:90
+msgid "Search “%s” on Wikipedia"
+msgstr "Tìm \"%s\" trên Wikipedia"
+
+#: ../data/gtk/prefs.ui:26
+msgid "Home Page"
+msgstr "Trang chủ"
+
+#: ../data/gtk/prefs.ui:27
+msgid "The page that will be displayed when Wike starts"
+msgstr "Wike sẽ hiển thị trang này khi khởi động"
+
+#: ../data/gtk/prefs.ui:55
+msgid "Privacy"
+msgstr "Riêng tư"
+
+#: ../data/gtk/prefs.ui:60
+msgid "Allow Live Search on Desktop"
+msgstr "Cho phép tìm kiếm trực tiếp desktop"
+
+#: ../data/gtk/prefs.ui:61
+msgid "Warning: all desktop searches will be sent to Wikipedia"
+msgstr "Lưu ý: tất cả các lượt tìm kiếm desktop sẽ được gửi đến Wikipedia"
+
+#: ../data/gtk/prefs.ui:83
+msgid "Wike will remember the history of visited articles"
+msgstr "Wike sẽ ghi nhớ lịch sử đọc bài viết"
+
+#: ../data/gtk/prefs.ui:94 ../data/gtk/prefs.ui:117
+msgid "Clear"
+msgstr "Xoá"
+
+#: ../data/gtk/prefs.ui:106
+msgid "Cookies and cache data will be deleted"
+msgstr "Dữ liệu cookie và cache sẽ bị xoá"
+
+#: ../data/gtk/page-status.ui:53
+msgid "Try Again"
+msgstr "Hãy thử lại"
+
+#: ../data/gtk/menu-article.ui:34 ../data/gtk/page-status.ui:42
+msgid "Random Article"
+msgstr "Bài viết ngẫu nhiên"
+
+#: ../data/gtk/prefs.ui:33
+msgid "Last article"
+msgstr "Bài viết gần đây nhất"
+
+#: ../data/gtk/window.ui:126 ../data/gtk/window.ui:239
+msgid "Bookmarks"
+msgstr "Dấu trang"
+
+#: ../data/gtk/bookmarks.ui:102 ../data/gtk/history.ui:94
+#: ../data/gtk/languages.ui:79
+msgid "Select All"
+msgstr "Chọn tất cả"
+
+#: ../data/gtk/bookmarks.ui:110 ../data/gtk/history.ui:102
+#: ../data/gtk/languages.ui:87
+msgid "Select None"
+msgstr "Bỏ chọn"
+
+#: ../src/view.py:417
+msgid "Open Link in New Tab"
+msgstr "Mở liên kết trong tab mới"
+
+#: ../src/view.py:423
+msgid "Add Link to Bookmarks"
+msgstr "Làm dấu liên kết"
+
+#: ../src/view.py:419
+msgid "Open Link in Browser"
+msgstr "Mở liên kết trong trình duyệt"
+
+#: ../src/view.py:425 ../data/gtk/menu-article.ui:50
+msgid "Copy Link to Clipboard"
+msgstr "Chép liên kết vào clipboard"
+
+#: ../data/gtk/prefs.ui:71
+msgid "Desktop searches are performed in the default language"
+msgstr "Máy bạn sẽ thực hiện tìm kiếm desktop bằng ngôn ngữ đặt sẵn"
+
+#: ../data/gtk/prefs.ui:72
+msgid "You can search in other languages ​​using a prefix. Eg. -es to search in Spanish"
+msgstr "Bạn có thể tìm bằng ngôn ngữ khác bằng cách thêm tiền tiết. Ví dụ, để tìm bằng tiếng Tây Ban Nhà, thêm -es."
+
+#: ../src/menu.py:101
+msgid "Pick a Font"
+msgstr "Chọn phông chữ"
+
+#: ../src/menu.py:130
+msgid "Font"
+msgstr "Phông chữ"
+
+#: ../src/history.py:35
+msgid "Today"
+msgstr "Hôm nay"
+
+#: ../src/history.py:35
+msgid "Last 7 days"
+msgstr "7 ngày qua"
+
+#: ../src/history.py:35
+msgid "Last 30 days"
+msgstr "30 ngày qua"
+
+#: ../src/history.py:35
+msgid "Show full history"
+msgstr "Xem chi tiết lịch sử"
+
+#: ../src/window.py:510 ../src/page.py:147
+msgid "Bookmark added: "
+msgstr "Dấu trang đã thêm: "
+
+#: ../src/window.py:607
+msgid "Print operation completed"
+msgstr "In hoàn tất"
+
+#: ../src/window.py:613
+msgid "Print operation failed"
+msgstr "In thất bại"
+
+#: ../src/window.py:630
+msgid "Link copied to clipboard"
+msgstr "Đã chép liên kết vào clipboard"
+
+#: ../src/application.py:151
+msgid "Source Code"
+msgstr "Mã nguồn"
+
+#: ../src/application.py:152
+msgid "Report an Issue"
+msgstr "Báo cáo lỗi"
+
+#: ../src/application.py:153
+msgid "Help Translating"
+msgstr "Giúp biên dịch"
+
+#: ../src/application.py:154
+msgid "Contributors"
+msgstr "Các đóng góp viên"
+
+#: ../src/application.py:155
+msgid "Flag Icons"
+msgstr "Biểu tượng cờ"
+
+#: ../src/application.py:156
+msgid "All content from Wikipedia.org and available under CC BY-SA 4.0 unless otherwise noted.\n"
+"\n"
+"Wike is an independent development not endorsed by or affiliated with the Wikimedia Foundation."
+msgstr "Tất cả nội dung được lấy từ Wikipedia và khả dụng thông qua giấy phép CC BY-SA 4.0 trừ khi được ghi khác.\n"
+"\n"
+"Wike được phát triển độc lập và không được công nhận bởi hay liên kết với Quỹ Wikimedia."
+
+#: ../src/page.py:99 ../src/page.py:102
+msgid "Loading…"
+msgstr "Đang nạp…"
+
+#: ../src/page.py:237
+msgid "Article not Found"
+msgstr "Không thấy bài viết"
+
+#: ../src/page.py:245
+msgid "Can’t Access Wikipedia"
+msgstr "Không thể truy cập Wikipedia"
+
+#: ../src/bookmarks.py:33
+msgid "Reading list"
+msgstr "Danh sách đọc"
+
+#: ../data/gtk/toc.ui:48
+msgid "No Contents"
+msgstr "Không có nội dung"
+
+#: ../data/gtk/toc.ui:49
+msgid "There is no table of contents for this page"
+msgstr "Trang này không có mục lục"
+
+#: ../data/gtk/languages.ui:11 ../data/gtk/search-settings.ui:23
+msgid "Pick your Languages"
+msgstr "Chọn ngôn ngữ"
+
+#: ../data/gtk/shortcuts-dialog.ui:40
+msgctxt "shortcut window"
+msgid "Languages"
+msgstr "Ngôn ngữ"
+
+#: ../data/gtk/shortcuts-dialog.ui:47
+msgctxt "shortcut window"
+msgid "Search text"
+msgstr "Tìm kiếm văn bản"
+
+#: ../data/gtk/shortcuts-dialog.ui:54
+msgctxt "shortcut window"
+msgid "Print"
+msgstr "In"
+
+#: ../data/gtk/shortcuts-dialog.ui:61
+msgctxt "shortcut window"
+msgid "Copy link to clipboard"
+msgstr "Chép vào clipboard"
+
+#: ../data/gtk/shortcuts-dialog.ui:169
+msgctxt "shortcut window"
+msgid "Main page"
+msgstr "Trang chính"
+
+#: ../data/gtk/shortcuts-dialog.ui:190
+msgctxt "shortcut window"
+msgid "History of recent articles"
+msgstr "Lịch sử các bài viết gần đây"
+
+#: ../data/gtk/shortcuts-dialog.ui:211
+msgctxt "shortcut window"
+msgid "Reload current page"
+msgstr "Nạp lại trang hiện tại"
+
+#: ../src/page.py:253 ../data/gtk/search.ui:24 ../data/gtk/window.ui:87
+#: ../data/gtk/window.ui:210 ../data/gtk/window.ui:356
+msgid "Search Wikipedia"
+msgstr "Tìm kiếm trên Wikipedia"
+
+#: ../data/gtk/dialogs.ui:12
+msgid "New Bookmarks List"
+msgstr "Danh sách dấu trang mới"
+
+#: ../data/gtk/dialogs.ui:20 ../data/gtk/dialogs.ui:42
+msgid "List Name"
+msgstr "Tên danh sách"
+
+#: ../data/gtk/dialogs.ui:27 ../data/gtk/dialogs.ui:49
+#: ../data/gtk/dialogs.ui:66 ../data/gtk/dialogs.ui:78
+#: ../data/gtk/dialogs.ui:90
+msgid "Cancel"
+msgstr "Thôi"
+
+#: ../data/gtk/dialogs.ui:28
+msgid "Create List"
+msgstr "Tạo danh sách"
+
+#: ../data/gtk/dialogs.ui:34
+msgid "Rename Bookmarks List"
+msgstr "Đặt tên danh sách dấu trang"
+
+#: ../data/gtk/dialogs.ui:50
+msgid "Rename List"
+msgstr "Đặt tên danh sách"
+
+#: ../data/gtk/dialogs.ui:62
+msgid "Also delete the list"
+msgstr "Đồng thời xoá danh sách"
+
+#: ../data/gtk/dialogs.ui:73
+msgid "Clear History?"
+msgstr "Xoá lịch sử?"
+
+#: ../data/gtk/history.ui:40 ../data/gtk/dialogs.ui:79
+msgid "Clear History"
+msgstr "Xoá lịch sử"
+
+#: ../data/gtk/prefs.ui:31
+msgid "Wikipedia main page"
+msgstr "Trang chính của Wikipedia"
+
+#: ../data/gtk/prefs.ui:32
+msgid "Random article"
+msgstr "Bài viết ngẫu nhiên"
+
+#: ../data/gtk/window.ui:322
+msgid "New Tab"
+msgstr "Tab mới"
+
+#: ../data/gtk/window.ui:348 ../data/gtk/window.ui:420
+msgid "View"
+msgstr "Diện mạo"
+
+#: ../data/gtk/window.ui:155
+msgid "Sidebar"
+msgstr "Thanh bên"
+
+#: ../data/gtk/page.ui:27
+msgid "Search text"
+msgstr "Tìm kiếm văn bản"
+
+#: ../src/page.py:254
+msgid "Start typing to search Wikipedia articles"
+msgstr "Bắt đầu nhập để tìm bài viết trên Wikipedia"
+
+#: ../data/gtk/menu-article.ui:30 ../data/gtk/page-status.ui:30
+msgid "Main Page"
+msgstr "Trang chính"
+
+#: ../data/gtk/langlinks.ui:74
+msgid "No Languages"
+msgstr "Không có ngôn ngữ"
+
+#: ../data/gtk/langlinks.ui:75
+msgid "This page is not available in other languages"
+msgstr "Trang này không khả dụng trong ngôn ngữ khác"
+
+#: ../data/gtk/menu-view.ui:28
+msgid "Show"
+msgstr "Hiển thị"
+
+#: ../data/gtk/menu-view.ui:30
+msgid "Language Flags"
+msgstr "Cờ cho ngôn ngữ"
+
+#: ../data/gtk/menu-view.ui:34
+msgid "Link Previews"
+msgstr "Xem trước liên kết"
+
+#: ../data/gtk/history.ui:65
+msgid "Empty History"
+msgstr "Lịch sử trống"
+
+#: ../data/gtk/history.ui:66
+msgid "There are no recent articles in the history"
+msgstr "Không có bài viết nào gần đây trong lịch sử"
+
+#: ../data/gtk/bookmarks.ui:73
+msgid "No Bookmarks"
+msgstr "Không có dấu trang"
+
+#: ../data/gtk/bookmarks.ui:74
+msgid "Use the Add Bookmark button or press Ctrl+D to add the current article to the list"
+msgstr "Sử dụng nút \"làm dấu trang\" hoặc nhấn tổ hợp Ctrl+D để thêm bài viết hiện tại vào danh sách"
+
+#: ../data/gtk/window.ui:100 ../data/gtk/window.ui:219
+msgid "Contents"
+msgstr "Nội dung"
+
+#: ../data/gtk/window.ui:139 ../data/gtk/window.ui:249
+msgid "History"
+msgstr "Lịch sử"
+
+#: ../data/gtk/menu-article.ui:16
+msgid "Print"
+msgstr "In"
+
+#: ../data/gtk/menu-article.ui:21
+msgid "Search Text"
+msgstr "Tìm kiếm văn bản"
+
+#: ../data/gtk/menu-article.ui:46
+msgid "Open in Browser"
+msgstr "Mở trong trình duyệt"
+
+#: ../data/gtk/bookmarks-menu.ui:14
+msgid "Create New List…"
+msgstr "Tạo danh sách mới..."
+
+#: ../data/gtk/bookmarks-menu.ui:21
+msgid "Rename List…"
+msgstr "Đặt lại tên danh sách..."
+
+#: ../data/gtk/bookmarks-menu.ui:25
+msgid "Clear List…"
+msgstr "Xoá danh sách..."
+
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:16
+msgid "It supports more than 300 languages and integrates with desktop searches, providing suggestions that make it easier to find any content. Other features are: bookmarks with multiple lists, article table of contents, history, text searches and much more…"
+msgstr "Wike hỗ trợ hơn 300 ngôn ngữ và tích hợp với tìm kiếm desktop, cung cấp gợi ý để tìm kiếm dễ hơn. Các tính năng khác bao gồm: làm dấu trang kèm với nhiều danh sách dấu trang, mục lục bài viết, lịch sử, tìm kiếm văn bản, ..."
+
+#: ../data/gtk/window.ui:304
+msgid "Back"
+msgstr "Lùi"
+
+#: ../data/gtk/window.ui:313
+msgid "Forward"
+msgstr "Tới"
+
+#: ../data/gtk/window.ui:61 ../data/gtk/window.ui:262
+msgid "Main Menu"
+msgstr "Menu chính"
+
+#: ../data/gtk/shortcuts-dialog.ui:147
+msgctxt "shortcut window"
+msgid "View open tabs"
+msgstr "Xem các tab đang mở"
+
+#: ../data/gtk/prefs.ui:34
+msgid "Restore open articles"
+msgstr "Hồi phục các bài viết đã mở"
+
+#: ../data/gtk/prefs.ui:105
+msgid "Clear Personal Data on Close"
+msgstr "Xoá dữ liệu các nhân khi đóng"
+
+#: ../data/gtk/window.ui:340 ../data/gtk/window.ui:412
+msgid "Article Menu"
+msgstr "Menu bài viết"
+
+#: ../src/langlinks.py:32
+msgid "Your languages"
+msgstr "Ngôn ngữ của bạn"
+
+#: ../src/langlinks.py:33
+msgid "All languages"
+msgstr "Tất cả ngôn ngữ"
+
+#: ../src/langlinks.py:109
+msgid "Other languages"
+msgstr "Ngôn ngữ khác"
+
+#: ../src/languages.py:122
+msgid "1 language selected"
+msgstr "Chọn 1 ngôn ngữ"
+
+#. Don't remove %s tag!
+#: ../src/languages.py:124
+msgid "%s languages selected"
+msgstr "Chọn %s ngôn ngữ"
+
+#: ../data/gtk/langlinks.ui:32 ../data/gtk/languages.ui:27
+msgid "Search Languages"
+msgstr "Tìm kiếm ngôn ngữ"
+
+#: ../data/gtk/langlinks.ui:48 ../data/gtk/languages.ui:42
+msgid "Search languages"
+msgstr "Tìm kiếm ngôn ngữ"
+
+#: ../data/gtk/bookmarks.ui:41 ../data/gtk/history.ui:32
+msgid "Select"
+msgstr "Chọn"
+
+#: ../data/gtk/bookmarks.ui:118 ../data/gtk/history.ui:110
+msgid "Remove Selected"
+msgstr "Bỏ chọn"
+
+#: ../data/gtk/prefs.ui:44
+msgid "Always Hide Tabs"
+msgstr "Luôn ẩn tab"
+
+#: ../data/gtk/prefs.ui:45
+msgid "The tab bar will also be hidden in desktop mode"
+msgstr "Thanh tab cũng sẽ bị ẩn trong chế độ desktop"
+
+#: ../data/gtk/search.ui:59
+msgid "No Results"
+msgstr "Không kết quả"
+
+#: ../data/gtk/search.ui:60
+msgid "Enter at least three characters to get search suggestions"
+msgstr "Nhập ít nhất ba ký tự để được gợi ý tìm kiếm"
+
+#: ../data/gtk/window.ui:197
+msgid "Close"
+msgstr "Đóng"
+
+#: ../data/gtk/page.ui:35
+msgid "Previous Result"
+msgstr "Kết quả trước đó"
+
+#: ../data/gtk/page.ui:44
+msgid "Next Result"
+msgstr "Kết quả tiếp theo"
+
+#: ../data/gtk/dialogs.ui:116
+msgid "Wikipedia Link"
+msgstr "Link Wikipedia"
+
+#: ../data/gtk/shortcuts-dialog.ui:15
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Chung"
+
+#: ../data/gtk/shortcuts-dialog.ui:19
+msgctxt "shortcut window"
+msgid "Main menu"
+msgstr "Menu chính"
+
+#: ../data/gtk/shortcuts-dialog.ui:26
+msgctxt "shortcut window"
+msgid "Sidebar"
+msgstr "Thanh bên"
+
+#: ../data/gtk/shortcuts-dialog.ui:33
+msgctxt "shortcut window"
+msgid "Table of contents"
+msgstr "Mục lục"
+
+#: ../data/gtk/shortcuts-dialog.ui:68
+msgctxt "shortcut window"
+msgid "Preferences"
+msgstr "Tuỳ thích"
+
+#: ../data/gtk/shortcuts-dialog.ui:75
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "Phím tắt"
+
+#: ../data/gtk/shortcuts-dialog.ui:82
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Thoát"
+
+#: ../data/gtk/shortcuts-dialog.ui:93 ../data/gtk/shortcuts-dialog.ui:97
+msgctxt "shortcut window"
+msgid "Bookmarks"
+msgstr "Dấu trang"
+
+#: ../data/gtk/shortcuts-dialog.ui:104
+msgctxt "shortcut window"
+msgid "Add bookmark"
+msgstr "Làm dấu trang"
+
+#: ../data/gtk/shortcuts-dialog.ui:115
+msgctxt "shortcut window"
+msgid "Tabs"
+msgstr "Tab"
+
+#: ../data/gtk/shortcuts-dialog.ui:119
+msgctxt "shortcut window"
+msgid "New tab"
+msgstr "Tab mới"
+
+#: ../data/gtk/shortcuts-dialog.ui:126
+msgctxt "shortcut window"
+msgid "Close current tab"
+msgstr "Đóng tab hiện tại"
+
+#: ../data/gtk/shortcuts-dialog.ui:133
+msgctxt "shortcut window"
+msgid "Next tab"
+msgstr "Tab tiếp theo"
+
+#: ../data/gtk/shortcuts-dialog.ui:140
+msgctxt "shortcut window"
+msgid "Previous tab"
+msgstr "Tab phía trước"
+
+#: ../data/gtk/shortcuts-dialog.ui:158
+msgctxt "shortcut window"
+msgid "Navigation"
+msgstr "Điều hướng"
+
+#: ../data/gtk/shortcuts-dialog.ui:162
+msgctxt "shortcut window"
+msgid "Search articles"
+msgstr "Tìm bài viết"
+
+#: ../data/gtk/shortcuts-dialog.ui:176
+msgctxt "shortcut window"
+msgid "Random article"
+msgstr "Bài viết ngẫu nhiên"
+
+#: ../data/gtk/shortcuts-dialog.ui:197
+msgctxt "shortcut window"
+msgid "Previous page"
+msgstr "Trang trước"
+
+#: ../data/gtk/shortcuts-dialog.ui:204
+msgctxt "shortcut window"
+msgid "Next page"
+msgstr "Trang tiếp theo"
+
+#: ../data/gtk/dialogs.ui:97 ../data/gtk/menu-article.ui:38
+msgid "Open Wikipedia Link"
+msgstr "Mở link Wikipedia"
+
+#: ../data/gtk/shortcuts-dialog.ui:183
+msgctxt "shortcut window"
+msgid "Open Wikipedia link"
+msgstr "Mở link Wikipedia"
+

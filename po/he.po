@@ -1,0 +1,679 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Wike\n"
+"Language: he\n"
+
+#: ../src/view.py:310
+msgid "Article not found"
+msgstr "הערך לא נמצא"
+
+#: ../src/page.py:238
+msgid "Can’t find any results for requested query"
+msgstr "לא נמצאו תוצאות לשאילתה המבוקשת"
+
+#: ../src/view.py:312
+msgid "Can’t access Wikipedia"
+msgstr "לא ניתן לגשת לוויקיפדיה"
+
+#: ../src/page.py:246
+msgid "Check your Internet connection and try again"
+msgstr "נא לבדוק את החיבור שלך לאינטרנט ולנסות שוב"
+
+#: ../data/gtk/dialogs.ui:56
+msgid "Clear Bookmarks List?"
+msgstr "לפנות את רשימת הסימניות?"
+
+#: ../data/gtk/dialogs.ui:57
+msgid "All bookmarks in the list will be removed permanently."
+msgstr "כל הסימניות ברשימה יימחקו לצמיתות."
+
+#: ../data/gtk/dialogs.ui:67
+msgid "Clear List"
+msgstr "לפנות את הרשימה"
+
+#: ../data/gtk/search-settings.ui:64
+msgid "Search Suggestions"
+msgstr "הצעות חיפוש"
+
+#. Add your name like this:
+#. 
+#. Hugo Olabera <hugolabe@gmail.com>
+#: ../data/gtk/about.ui:17
+msgid "translator-credits"
+msgstr "ירון שהרבני <sh.yaron@gmail.com>"
+
+#: ../src/view.py:405 ../data/gtk/bookmarks.ui:32
+msgid "Add Bookmark"
+msgstr "הוספת סימנייה"
+
+#: ../data/gtk/menu-main.ui:15
+msgid "Preferences"
+msgstr "העדפות"
+
+#: ../data/gtk/menu-main.ui:19
+msgid "Keyboard Shortcuts"
+msgstr "צירופי מקשים"
+
+#: ../data/gtk/menu-main.ui:23
+msgid "About Wike"
+msgstr "על Wike"
+
+#: ../data/gtk/prefs.ui:21
+msgid "Behavior"
+msgstr "התנהגות"
+
+#: ../data/gtk/prefs.ui:82
+msgid "Keep a List of Recent Articles"
+msgstr "לשמור רשימה של ערכים אחרונים"
+
+#: ../data/gtk/window.ui:113 ../data/gtk/window.ui:229
+msgid "Languages"
+msgstr "שפות"
+
+#. Don't translate app name!
+#: ../data/com.github.hugolabe.Wike.desktop.in:2
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:7
+msgid "Wike"
+msgstr "Wike"
+
+#: ../data/gtk/about.ui:15 ../data/com.github.hugolabe.Wike.desktop.in:3
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:8
+msgid "Search and read Wikipedia articles"
+msgstr "חיפוש וקריאה של ערכים בוויקיפדיה"
+
+#. Don't remove semicolons!
+#: ../data/com.github.hugolabe.Wike.desktop.in:12
+msgid "Wikipedia;Encyclopedia;"
+msgstr "ויקיפדיה;אנציקלופדיה;"
+
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:11
+msgid "Wike is a Wikipedia reader for the GNOME Desktop. Provides access to all the content of this online encyclopedia in a native application, with a simpler and distraction-free view of articles."
+msgstr "Wike הוא מציג ויקיפדיה לשולחן העבודה GNOME. מספק גישה לכל התוכן של האנציקלופדיה המקוונת הזאת ביישום מותאם, והצגת ערכים פשוטה ונטולת הסחות דעת."
+
+#: ../data/gtk/dialogs.ui:74
+msgid "The history of visited articles will be deleted permanently."
+msgstr "היסטוריית הערכים בהם ביקרת תימחק לצמיתות."
+
+#: ../data/gtk/dialogs.ui:85
+msgid "Clear Personal Data?"
+msgstr "לפנות נתונים אישיים?"
+
+#: ../data/gtk/dialogs.ui:86
+msgid "Cookies and cache data will be deleted permanently."
+msgstr "עוגיות ונתוני מטמון יימחקו לצמיתות."
+
+#: ../data/gtk/dialogs.ui:91
+msgid "Clear Data"
+msgstr "פינוי נתונים"
+
+#. Don't remove %s tag!
+#: ../src/wike-sp.in:90
+msgid "Search “%s” on Wikipedia"
+msgstr "חיפוש אחר „%s” בוויקיפדיה"
+
+#: ../data/gtk/prefs.ui:26
+msgid "Home Page"
+msgstr "עמוד הבית"
+
+#: ../data/gtk/prefs.ui:27
+msgid "The page that will be displayed when Wike starts"
+msgstr "העמוד שיוצג עם פתיחת Wike"
+
+#: ../data/gtk/prefs.ui:55
+msgid "Privacy"
+msgstr "פרטיות"
+
+#: ../data/gtk/prefs.ui:60
+msgid "Allow Live Search on Desktop"
+msgstr "לאפשר חיפוש חי בשולחן העבודה"
+
+#: ../data/gtk/prefs.ui:61
+msgid "Warning: all desktop searches will be sent to Wikipedia"
+msgstr "אזהרה: כל החיפוש משולחן העבודה נשלחים לוויקיפדיה"
+
+#: ../data/gtk/prefs.ui:83
+msgid "Wike will remember the history of visited articles"
+msgstr "Wike יזכור את היסטוריית הערכים בהם ביקרת"
+
+#: ../data/gtk/prefs.ui:94 ../data/gtk/prefs.ui:117
+msgid "Clear"
+msgstr "פינוי"
+
+#: ../data/gtk/prefs.ui:106
+msgid "Cookies and cache data will be deleted"
+msgstr "העוגיות ונתוני המטמון יימחקו"
+
+#: ../data/gtk/page-status.ui:53
+msgid "Try Again"
+msgstr "לנסות שוב"
+
+#: ../data/gtk/menu-article.ui:34 ../data/gtk/page-status.ui:42
+msgid "Random Article"
+msgstr "ערך אקראי"
+
+#: ../data/gtk/prefs.ui:33
+msgid "Last article"
+msgstr "הערך האחרון"
+
+#: ../data/gtk/window.ui:126 ../data/gtk/window.ui:239
+msgid "Bookmarks"
+msgstr "סימניות"
+
+#: ../data/gtk/bookmarks.ui:102 ../data/gtk/history.ui:94
+#: ../data/gtk/languages.ui:79
+msgid "Select All"
+msgstr "בחירה בהכול"
+
+#: ../data/gtk/bookmarks.ui:110 ../data/gtk/history.ui:102
+#: ../data/gtk/languages.ui:87
+msgid "Select None"
+msgstr "בחירה בכלום"
+
+#: ../src/view.py:417
+msgid "Open Link in New Tab"
+msgstr "פתיחת קישור בלשונית חדשה"
+
+#: ../src/view.py:423
+msgid "Add Link to Bookmarks"
+msgstr "הוספת קישור לסימניות"
+
+#: ../src/view.py:419
+msgid "Open Link in Browser"
+msgstr "פתיחת קישור בדפדפן"
+
+#: ../src/view.py:425 ../data/gtk/menu-article.ui:50
+msgid "Copy Link to Clipboard"
+msgstr "העתקת קישור ללוח הגזירים"
+
+#: ../data/gtk/prefs.ui:71
+msgid "Desktop searches are performed in the default language"
+msgstr "חיפושים בשולחן העבודה נערכים בשפת ברירת המחדל"
+
+#: ../data/gtk/prefs.ui:72
+msgid "You can search in other languages ​​using a prefix. Eg. -es to search in Spanish"
+msgstr "ניתן לחפש בשפות אחרות באמצעות קידומת. למשל: ‎-en כדי לחפש באנגלית"
+
+#: ../src/menu.py:101
+msgid "Pick a Font"
+msgstr "נא לבחור גופן"
+
+#: ../src/menu.py:130
+msgid "Font"
+msgstr "גופן"
+
+#: ../src/history.py:35
+msgid "Today"
+msgstr "היום"
+
+#: ../src/history.py:35
+msgid "Last 7 days"
+msgstr "7 הימים האחרונים"
+
+#: ../src/history.py:35
+msgid "Last 30 days"
+msgstr "30 הימים האחרונים"
+
+#: ../src/history.py:35
+msgid "Show full history"
+msgstr "הצגת ההיסטוריה המלאה"
+
+#: ../src/window.py:510 ../src/page.py:147
+msgid "Bookmark added: "
+msgstr "נוספה סימנייה: "
+
+#: ../src/window.py:607
+msgid "Print operation completed"
+msgstr "פעולת ההדפסה הושלמה"
+
+#: ../src/window.py:613
+msgid "Print operation failed"
+msgstr "פעולת ההדפסה נכשלה"
+
+#: ../src/window.py:630
+msgid "Link copied to clipboard"
+msgstr "הקישור הועתק ללוח הגזירים"
+
+#: ../src/application.py:151
+msgid "Source Code"
+msgstr "קוד מקור"
+
+#: ../src/application.py:152
+msgid "Report an Issue"
+msgstr "דיווח על תקלה"
+
+#: ../src/application.py:153
+msgid "Help Translating"
+msgstr "עזרה בתרגום"
+
+#: ../src/application.py:154
+msgid "Contributors"
+msgstr "תורמים"
+
+#: ../src/application.py:155
+msgid "Flag Icons"
+msgstr "סמלי דגלים"
+
+#: ../src/application.py:156
+msgid "All content from Wikipedia.org and available under CC BY-SA 4.0 unless otherwise noted.\n"
+"\n"
+"Wike is an independent development not endorsed by or affiliated with the Wikimedia Foundation."
+msgstr "כל התוכן מ־Wikipedia.org זמין בכפוף לרישיון CC BY-SA 4.0 אלא אם צוין אחרת.\n"
+"\n"
+"Wike מפותח עצמאית ללא עידוד או זיקה לקרן ויקימדיה."
+
+#: ../src/page.py:99 ../src/page.py:102
+msgid "Loading…"
+msgstr "בטעינה…"
+
+#: ../src/page.py:237
+msgid "Article not Found"
+msgstr "הערך לא נמצא"
+
+#: ../src/page.py:245
+msgid "Can’t Access Wikipedia"
+msgstr "לא ניתן לגשת לוויקיפדיה"
+
+#: ../src/bookmarks.py:33
+msgid "Reading list"
+msgstr "רשימת קריאה"
+
+#: ../data/gtk/toc.ui:48
+msgid "No Contents"
+msgstr "אין תוכן"
+
+#: ../data/gtk/toc.ui:49
+msgid "There is no table of contents for this page"
+msgstr "אין מפתח עניינים לדף הזה"
+
+#: ../data/gtk/languages.ui:11 ../data/gtk/search-settings.ui:23
+msgid "Pick your Languages"
+msgstr "נא לבחור את השפות שלך"
+
+#: ../data/gtk/shortcuts-dialog.ui:40
+msgctxt "shortcut window"
+msgid "Languages"
+msgstr "שפות"
+
+#: ../data/gtk/shortcuts-dialog.ui:47
+msgctxt "shortcut window"
+msgid "Search text"
+msgstr "חיפוש טקסט"
+
+#: ../data/gtk/shortcuts-dialog.ui:54
+msgctxt "shortcut window"
+msgid "Print"
+msgstr "הדפסה"
+
+#: ../data/gtk/shortcuts-dialog.ui:61
+msgctxt "shortcut window"
+msgid "Copy link to clipboard"
+msgstr "העתקת קישור ללוח גזירים"
+
+#: ../data/gtk/shortcuts-dialog.ui:169
+msgctxt "shortcut window"
+msgid "Main page"
+msgstr "עמוד ראשי"
+
+#: ../data/gtk/shortcuts-dialog.ui:190
+msgctxt "shortcut window"
+msgid "History of recent articles"
+msgstr "היסטוריית הדף הנוכחי"
+
+#: ../data/gtk/shortcuts-dialog.ui:211
+msgctxt "shortcut window"
+msgid "Reload current page"
+msgstr "רענון הדף הנוכחי"
+
+#: ../src/page.py:253 ../data/gtk/search.ui:24 ../data/gtk/window.ui:87
+#: ../data/gtk/window.ui:210 ../data/gtk/window.ui:356
+msgid "Search Wikipedia"
+msgstr "חיפוש בוויקיפדיה"
+
+#: ../data/gtk/dialogs.ui:12
+msgid "New Bookmarks List"
+msgstr "רשימת סימניות חדשה"
+
+#: ../data/gtk/dialogs.ui:20 ../data/gtk/dialogs.ui:42
+msgid "List Name"
+msgstr "שם הרשימה"
+
+#: ../data/gtk/dialogs.ui:27 ../data/gtk/dialogs.ui:49
+#: ../data/gtk/dialogs.ui:66 ../data/gtk/dialogs.ui:78
+#: ../data/gtk/dialogs.ui:90
+msgid "Cancel"
+msgstr "ביטול"
+
+#: ../data/gtk/dialogs.ui:28
+msgid "Create List"
+msgstr "יצירת רשימה"
+
+#: ../data/gtk/dialogs.ui:34
+msgid "Rename Bookmarks List"
+msgstr "שינוי שם רשימת הסימניות"
+
+#: ../data/gtk/dialogs.ui:50
+msgid "Rename List"
+msgstr "שינוי שם רשימה"
+
+#: ../data/gtk/dialogs.ui:62
+msgid "Also delete the list"
+msgstr "גם למחוק את הרשימה"
+
+#: ../data/gtk/dialogs.ui:73
+msgid "Clear History?"
+msgstr "למחוק את ההיסטוריה?"
+
+#: ../data/gtk/history.ui:40 ../data/gtk/dialogs.ui:79
+msgid "Clear History"
+msgstr "למחוק את ההיסטוריה"
+
+#: ../data/gtk/prefs.ui:31
+msgid "Wikipedia main page"
+msgstr "העמוד הראשי של ויקיפדיה"
+
+#: ../data/gtk/prefs.ui:32
+msgid "Random article"
+msgstr "ערך אקראי"
+
+#: ../data/gtk/window.ui:322
+msgid "New Tab"
+msgstr "לשונית חדשה"
+
+#: ../data/gtk/window.ui:348 ../data/gtk/window.ui:420
+msgid "View"
+msgstr "תצוגה"
+
+#: ../data/gtk/window.ui:155
+msgid "Sidebar"
+msgstr "סרגל צד"
+
+#: ../data/gtk/page.ui:27
+msgid "Search text"
+msgstr "חיפוש טקסט"
+
+#: ../src/page.py:254
+msgid "Start typing to search Wikipedia articles"
+msgstr "הקלדה תתחיל לחפש בערכים של ויקיפדיה"
+
+#: ../data/gtk/menu-article.ui:30 ../data/gtk/page-status.ui:30
+msgid "Main Page"
+msgstr "עמוד ראשי"
+
+#: ../data/gtk/langlinks.ui:74
+msgid "No Languages"
+msgstr "אין שפות"
+
+#: ../data/gtk/langlinks.ui:75
+msgid "This page is not available in other languages"
+msgstr "הדף הזה לא זמין בשפות נוספות"
+
+#: ../data/gtk/menu-view.ui:28
+msgid "Show"
+msgstr "הצגה"
+
+#: ../data/gtk/menu-view.ui:30
+msgid "Language Flags"
+msgstr "דגלי שפות"
+
+#: ../data/gtk/menu-view.ui:34
+msgid "Link Previews"
+msgstr "תצוגה מקדימה של קישורים"
+
+#: ../data/gtk/history.ui:65
+msgid "Empty History"
+msgstr "היסטוריה ריקה"
+
+#: ../data/gtk/history.ui:66
+msgid "There are no recent articles in the history"
+msgstr "אין ערכים אחרונים בהיסטוריה"
+
+#: ../data/gtk/bookmarks.ui:73
+msgid "No Bookmarks"
+msgstr "אין סימניות"
+
+#: ../data/gtk/bookmarks.ui:74
+msgid "Use the Add Bookmark button or press Ctrl+D to add the current article to the list"
+msgstr "שימוש בכפתור הוספת סימנייה או לחיצה על Ctrl+D תוספנה את הערך הנוכחי לרשימה"
+
+#: ../data/gtk/window.ui:100 ../data/gtk/window.ui:219
+msgid "Contents"
+msgstr "תוכן"
+
+#: ../data/gtk/window.ui:139 ../data/gtk/window.ui:249
+msgid "History"
+msgstr "היסטוריה"
+
+#: ../data/gtk/menu-article.ui:16
+msgid "Print"
+msgstr "הדפסה"
+
+#: ../data/gtk/menu-article.ui:21
+msgid "Search Text"
+msgstr "חיפוש טקסט"
+
+#: ../data/gtk/menu-article.ui:46
+msgid "Open in Browser"
+msgstr "פתיחה בדפדפן"
+
+#: ../data/gtk/bookmarks-menu.ui:14
+msgid "Create New List…"
+msgstr "יצירת רשימה חדשה…"
+
+#: ../data/gtk/bookmarks-menu.ui:21
+msgid "Rename List…"
+msgstr "שינוי שם רשימה…"
+
+#: ../data/gtk/bookmarks-menu.ui:25
+msgid "Clear List…"
+msgstr "פינוי רשימה…"
+
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:16
+msgid "It supports more than 300 languages and integrates with desktop searches, providing suggestions that make it easier to find any content. Other features are: bookmarks with multiple lists, article table of contents, history, text searches and much more…"
+msgstr "תומך בלמעלה מ־300 שפות ומשתלב בחיפושים משולחן העבודה, מספק הצעות שמקלות על איתור תוכן. יכולות נוספות: בחנות עם מגוון רשימות, תוכן עניינים של ערך, היסטוריה, חיפושי טקסט ועוד המון…"
+
+#: ../data/gtk/window.ui:304
+msgid "Back"
+msgstr "אחורה"
+
+#: ../data/gtk/window.ui:313
+msgid "Forward"
+msgstr "קדימה"
+
+#: ../data/gtk/window.ui:61 ../data/gtk/window.ui:262
+msgid "Main Menu"
+msgstr "תפריט ראשי"
+
+#: ../data/gtk/shortcuts-dialog.ui:147
+msgctxt "shortcut window"
+msgid "View open tabs"
+msgstr "הצגת הלשוניות הפתוחות"
+
+#: ../data/gtk/prefs.ui:34
+msgid "Restore open articles"
+msgstr "שחזור ערכים פתוחים"
+
+#: ../data/gtk/prefs.ui:105
+msgid "Clear Personal Data on Close"
+msgstr "פינוי הנתונים האישיים בעת הסגירה"
+
+#: ../data/gtk/window.ui:340 ../data/gtk/window.ui:412
+msgid "Article Menu"
+msgstr "תפריט ערכים"
+
+#: ../src/langlinks.py:32
+msgid "Your languages"
+msgstr "השפות שלך"
+
+#: ../src/langlinks.py:33
+msgid "All languages"
+msgstr "כל השפות"
+
+#: ../src/langlinks.py:109
+msgid "Other languages"
+msgstr "שפות אחרות"
+
+#: ../src/languages.py:122
+msgid "1 language selected"
+msgstr "שפה נבחרה"
+
+#. Don't remove %s tag!
+#: ../src/languages.py:124
+msgid "%s languages selected"
+msgstr "%s שפות נבחרו"
+
+#: ../data/gtk/langlinks.ui:32 ../data/gtk/languages.ui:27
+msgid "Search Languages"
+msgstr "חיפוש בין השפות"
+
+#: ../data/gtk/langlinks.ui:48 ../data/gtk/languages.ui:42
+msgid "Search languages"
+msgstr "חיפוש בין השפות"
+
+#: ../data/gtk/bookmarks.ui:41 ../data/gtk/history.ui:32
+msgid "Select"
+msgstr "בחירה"
+
+#: ../data/gtk/bookmarks.ui:118 ../data/gtk/history.ui:110
+msgid "Remove Selected"
+msgstr "הסרת הנבחרות"
+
+#: ../data/gtk/prefs.ui:44
+msgid "Always Hide Tabs"
+msgstr "תמיד להסתיר לשוניות"
+
+#: ../data/gtk/prefs.ui:45
+msgid "The tab bar will also be hidden in desktop mode"
+msgstr "סרגל הלשוניות תמיד יוסתר במצב שולחן עבודה"
+
+#: ../data/gtk/search.ui:59
+msgid "No Results"
+msgstr "אין תוצאות"
+
+#: ../data/gtk/search.ui:60
+msgid "Enter at least three characters to get search suggestions"
+msgstr "נא למלא לפחות שלושה תווים כדי לקבל הצעות חיפוש"
+
+#: ../data/gtk/window.ui:197
+msgid "Close"
+msgstr "סגירה"
+
+#: ../data/gtk/page.ui:35
+msgid "Previous Result"
+msgstr "התוצאה הקודמת"
+
+#: ../data/gtk/page.ui:44
+msgid "Next Result"
+msgstr "התוצאה הבאה"
+
+#: ../data/gtk/dialogs.ui:116
+msgid "Wikipedia Link"
+msgstr "קישור לוויקיפדיה"
+
+#: ../data/gtk/shortcuts-dialog.ui:15
+msgctxt "shortcut window"
+msgid "General"
+msgstr "כללי"
+
+#: ../data/gtk/shortcuts-dialog.ui:19
+msgctxt "shortcut window"
+msgid "Main menu"
+msgstr "תפריט ראשי"
+
+#: ../data/gtk/shortcuts-dialog.ui:26
+msgctxt "shortcut window"
+msgid "Sidebar"
+msgstr "סרגל צד"
+
+#: ../data/gtk/shortcuts-dialog.ui:33
+msgctxt "shortcut window"
+msgid "Table of contents"
+msgstr "תוכן עניינים"
+
+#: ../data/gtk/shortcuts-dialog.ui:68
+msgctxt "shortcut window"
+msgid "Preferences"
+msgstr "העדפות"
+
+#: ../data/gtk/shortcuts-dialog.ui:75
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "צירופי מקשים"
+
+#: ../data/gtk/shortcuts-dialog.ui:82
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "יציאה"
+
+#: ../data/gtk/shortcuts-dialog.ui:93 ../data/gtk/shortcuts-dialog.ui:97
+msgctxt "shortcut window"
+msgid "Bookmarks"
+msgstr "סימניות"
+
+#: ../data/gtk/shortcuts-dialog.ui:104
+msgctxt "shortcut window"
+msgid "Add bookmark"
+msgstr "הוספת סימנייה"
+
+#: ../data/gtk/shortcuts-dialog.ui:115
+msgctxt "shortcut window"
+msgid "Tabs"
+msgstr "לשוניות"
+
+#: ../data/gtk/shortcuts-dialog.ui:119
+msgctxt "shortcut window"
+msgid "New tab"
+msgstr "לשונית חדשה"
+
+#: ../data/gtk/shortcuts-dialog.ui:126
+msgctxt "shortcut window"
+msgid "Close current tab"
+msgstr "סגירת הלשונית הנוכחית"
+
+#: ../data/gtk/shortcuts-dialog.ui:133
+msgctxt "shortcut window"
+msgid "Next tab"
+msgstr "הלשונית הבאה"
+
+#: ../data/gtk/shortcuts-dialog.ui:140
+msgctxt "shortcut window"
+msgid "Previous tab"
+msgstr "הלשונית הקודמת"
+
+#: ../data/gtk/shortcuts-dialog.ui:158
+msgctxt "shortcut window"
+msgid "Navigation"
+msgstr "ניווט"
+
+#: ../data/gtk/shortcuts-dialog.ui:162
+msgctxt "shortcut window"
+msgid "Search articles"
+msgstr "חיפוש ערכים"
+
+#: ../data/gtk/shortcuts-dialog.ui:176
+msgctxt "shortcut window"
+msgid "Random article"
+msgstr "ערך אקראי"
+
+#: ../data/gtk/shortcuts-dialog.ui:197
+msgctxt "shortcut window"
+msgid "Previous page"
+msgstr "העמוד הקודם"
+
+#: ../data/gtk/shortcuts-dialog.ui:204
+msgctxt "shortcut window"
+msgid "Next page"
+msgstr "העמוד הבא"
+
+#: ../data/gtk/dialogs.ui:97 ../data/gtk/menu-article.ui:38
+msgid "Open Wikipedia Link"
+msgstr "פתיחת קישור לוויקיפדיה"
+
+#: ../data/gtk/shortcuts-dialog.ui:183
+msgctxt "shortcut window"
+msgid "Open Wikipedia link"
+msgstr "פתיחת קישור לוויקיפדיה"
+

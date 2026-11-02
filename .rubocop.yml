@@ -23,6 +23,9 @@ AllCops:
     - node_modules/**/*
     - app/javascript/**/*
     - reference/**/*
+    # Copied verbatim from .claude/skills/ruby-gtk-testing; reformatting it
+    # would make it diverge from the skill's copy for nothing.
+    - test/gtk_driver.rb
     - references/**/*   # vendored upstream checkouts, with configs of their own
     - pkg/**/*
 

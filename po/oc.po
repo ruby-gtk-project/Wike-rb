@@ -1,0 +1,668 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Wike\n"
+"Language: oc\n"
+
+#: ../src/view.py:293
+msgid "Article not found"
+msgstr "Article pas trobat"
+
+#: ../src/page.py:231
+msgid "Can't find any results for requested query"
+msgstr "Pas cap de resultas per la demanda"
+
+#: ../src/view.py:295
+msgid "Can't access Wikipedia"
+msgstr "Pòt pas accedir a Wikipedia"
+
+#: ../src/page.py:239
+msgid "Check your Internet connection and try again"
+msgstr "Verificatz vòstra connexion internet e tornatz ensajar"
+
+#: ../data/gtk/dialogs.ui:56
+msgid "Clear Bookmarks List?"
+msgstr "Escafar la tièra de signets ?"
+
+#: ../data/gtk/dialogs.ui:57
+msgid "All bookmarks in the list will be removed permanently."
+msgstr "Totes los signets seràn definitivament escafats de la tièra."
+
+#: ../data/gtk/dialogs.ui:67
+msgid "Clear List"
+msgstr "Escafar la lista"
+
+#: ../data/gtk/search-settings.ui:64
+msgid "Search Suggestions"
+msgstr "Suggestions de recèrca"
+
+#. Add your name like this:
+#. 
+#. Hugo Olabera <hugolabe@gmail.com>
+#: ../data/gtk/about.ui:17
+msgid "translator-credits"
+msgstr "Quentin PAGÈS & Nicolas MIARD"
+
+#: ../src/view.py:388 ../data/gtk/bookmarks.ui:32
+msgid "Add Bookmark"
+msgstr "Apondre un signet"
+
+#: ../data/gtk/help-overlay.ui:21
+msgctxt "shortcut window"
+msgid "General"
+msgstr "General"
+
+#: ../data/gtk/help-overlay.ui:39
+msgctxt "shortcut window"
+msgid "Table of contents"
+msgstr "Ensenhador"
+
+#: ../data/gtk/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Preferences"
+msgstr "Preferéncias"
+
+#: ../data/gtk/help-overlay.ui:88
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Quitar"
+
+#: ../data/gtk/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "Acorchis clavièr"
+
+#: ../data/gtk/help-overlay.ui:164
+msgctxt "shortcut window"
+msgid "Navigation"
+msgstr "Navigacion"
+
+#: ../data/gtk/help-overlay.ui:168
+msgctxt "shortcut window"
+msgid "Search articles"
+msgstr "Recercar d'articles"
+
+#: ../data/gtk/help-overlay.ui:196
+msgctxt "shortcut window"
+msgid "Previous page"
+msgstr "Pagina precedenta"
+
+#: ../data/gtk/help-overlay.ui:203
+msgctxt "shortcut window"
+msgid "Next page"
+msgstr "Pagina seguenta"
+
+#: ../data/gtk/help-overlay.ui:99 ../data/gtk/help-overlay.ui:103
+msgctxt "shortcut window"
+msgid "Bookmarks"
+msgstr "Signets"
+
+#: ../data/gtk/help-overlay.ui:110
+msgctxt "shortcut window"
+msgid "Add bookmark"
+msgstr "Apondre un signet"
+
+#: ../data/gtk/menu-main.ui:15
+msgid "Preferences"
+msgstr "Preferéncias"
+
+#: ../data/gtk/menu-main.ui:19
+msgid "Keyboard Shortcuts"
+msgstr "Acorchis de clavièr"
+
+#: ../data/gtk/menu-main.ui:23
+msgid "About Wike"
+msgstr "A prepaus de Wike"
+
+#: ../data/gtk/prefs.ui:21
+msgid "Behavior"
+msgstr "Compòrtament"
+
+#: ../data/gtk/prefs.ui:82
+msgid "Keep a List of Recent Articles"
+msgstr "Gardar una tièra d’articles recents"
+
+#: ../data/gtk/window.ui:113 ../data/gtk/window.ui:229
+msgid "Languages"
+msgstr "Lengas"
+
+#. Don't translate app name!
+#: ../data/com.github.hugolabe.Wike.desktop.in:3
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:7
+msgid "Wike"
+msgstr "Wike"
+
+#: ../data/gtk/about.ui:15 ../data/com.github.hugolabe.Wike.desktop.in:4
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:8
+msgid "Search and read Wikipedia articles"
+msgstr "Cercar e legir d'articles dins Wikipedia"
+
+#. Don't remove semicolons!
+#: ../data/com.github.hugolabe.Wike.desktop.in:12
+msgid "Wikipedia;Encyclopedia;"
+msgstr "Wikipedia;Enciclopedia;"
+
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:11
+msgid "Wike is a Wikipedia reader for the GNOME Desktop. Provides access to all the content of this online encyclopedia in a native application, with a simpler and distraction-free view of articles."
+msgstr "Wike es un legidor per Wikipedia per l'environa de burèu GNOME. Porgís un accès a tot lo contengut d'aquesta enciclopedia en linha dins una aplicacion nativa, amb una vista mai simpla e sens distraccion dels articles."
+
+#: ../data/gtk/dialogs.ui:74
+msgid "The history of visited articles will be deleted permanently."
+msgstr "L'istoric dels articles vistalhats serà definitivament escafat."
+
+#: ../data/gtk/dialogs.ui:85
+msgid "Clear Personal Data?"
+msgstr "Escafar las donadas personalas ?"
+
+#: ../data/gtk/dialogs.ui:86
+msgid "Cookies and cache data will be deleted permanently."
+msgstr "Los cookies e las donadas de cache seràn definitivament escafats."
+
+#: ../data/gtk/dialogs.ui:91
+msgid "Clear Data"
+msgstr "Escafar las donadas"
+
+#. Don't remove %s tag!
+#: ../src/wike-sp.in:90
+msgid "Search “%s” on Wikipedia"
+msgstr "Cercar “%s” sus Wikipedia"
+
+#: ../data/gtk/prefs.ui:26
+msgid "Home Page"
+msgstr "Pagina d'acuèlh"
+
+#: ../data/gtk/prefs.ui:27
+msgid "The page that will be displayed when Wike starts"
+msgstr "Aquesta pagina s'aficharà quand Wike se lança"
+
+#: ../data/gtk/prefs.ui:55
+msgid "Privacy"
+msgstr "Confidencialitat"
+
+#: ../data/gtk/prefs.ui:60
+msgid "Allow Live Search on Desktop"
+msgstr "Autorizar la cerca estantanèa dins l'environa de burèu"
+
+#: ../data/gtk/prefs.ui:61
+msgid "Warning: all desktop searches will be sent to Wikipedia"
+msgstr "Atencion : totas las cercas dins l'environa de burèu seràn mandadas a Wikipedia"
+
+#: ../data/gtk/prefs.ui:83
+msgid "Wike will remember the history of visited articles"
+msgstr "Wike se remembrarà l'istoric dels articles vistalhats"
+
+#: ../data/gtk/prefs.ui:94 ../data/gtk/prefs.ui:117
+msgid "Clear"
+msgstr "Escafar"
+
+#: ../data/gtk/prefs.ui:106
+msgid "Cookies and cache data will be deleted"
+msgstr "Los cookies e las donadas de cache seràn definitivament escafats"
+
+#: ../data/gtk/page-status.ui:50
+msgid "Try Again"
+msgstr "Ensajar tornarmai"
+
+#: ../data/gtk/menu-article.ui:34 ../data/gtk/page-status.ui:39
+msgid "Random Article"
+msgstr "Article a l'azard"
+
+#: ../data/gtk/prefs.ui:33
+msgid "Last article"
+msgstr "Darrièr article"
+
+#: ../data/gtk/window.ui:126 ../data/gtk/window.ui:239
+msgid "Bookmarks"
+msgstr "Signets"
+
+#: ../data/gtk/bookmarks.ui:102 ../data/gtk/history.ui:94
+#: ../data/gtk/languages.ui:79
+msgid "Select All"
+msgstr "Tot seleccionar"
+
+#: ../data/gtk/bookmarks.ui:110 ../data/gtk/history.ui:102
+#: ../data/gtk/languages.ui:87
+msgid "Select None"
+msgstr "Seleccionar pas res"
+
+#: ../data/gtk/help-overlay.ui:25
+msgctxt "shortcut window"
+msgid "Main menu"
+msgstr "Menú principal"
+
+#: ../data/gtk/help-overlay.ui:121
+msgctxt "shortcut window"
+msgid "Tabs"
+msgstr "Onglets"
+
+#: ../data/gtk/help-overlay.ui:125
+msgctxt "shortcut window"
+msgid "New tab"
+msgstr "Onglet novèl"
+
+#: ../data/gtk/help-overlay.ui:132
+msgctxt "shortcut window"
+msgid "Close current tab"
+msgstr "Tampar l’onglet actual"
+
+#: ../data/gtk/help-overlay.ui:139
+msgctxt "shortcut window"
+msgid "Next tab"
+msgstr "Onglet seguent"
+
+#: ../data/gtk/help-overlay.ui:146
+msgctxt "shortcut window"
+msgid "Previous tab"
+msgstr "Onglet precedent"
+
+#: ../src/view.py:400
+msgid "Open Link in New Tab"
+msgstr "Dobrir lo ligam dins un onglet novèl"
+
+#: ../src/view.py:406
+msgid "Add Link to Bookmarks"
+msgstr "Apondre un ligam als signets"
+
+#: ../src/view.py:402
+msgid "Open Link in Browser"
+msgstr "Dobrir un ligam dins lo navigador"
+
+#: ../src/view.py:408 ../data/gtk/menu-article.ui:46
+msgid "Copy Link to Clipboard"
+msgstr "Copiar lo ligam dins lo quichapapièrs"
+
+#: ../data/gtk/prefs.ui:71
+msgid "Desktop searches are performed in the default language"
+msgstr "Las cercas dins l'environa de burèu se faràn dins la lenga per defaut del sistèma"
+
+#: ../data/gtk/prefs.ui:72
+msgid "You can search in other languages ​​using a prefix. Eg. -es to search in Spanish"
+msgstr "Podètz cercar dins una autra lenga en utilizant un prefixe. Per exemple -es per cercar en Espanhòl"
+
+#: ../data/gtk/help-overlay.ui:182
+msgctxt "shortcut window"
+msgid "Random article"
+msgstr "Article a l'azard"
+
+#: ../src/menu.py:101
+msgid "Pick a Font"
+msgstr "Causissètz una polissa"
+
+#: ../src/menu.py:130
+msgid "Font"
+msgstr "Polissa"
+
+#: ../src/history.py:35
+msgid "Today"
+msgstr "Uèi"
+
+#: ../src/history.py:35
+msgid "Last 7 days"
+msgstr "Los darrièrs 7 jorns"
+
+#: ../src/history.py:35
+msgid "Last 30 days"
+msgstr "Los darrièrs 30 jorns"
+
+#: ../src/history.py:35
+msgid "Show full history"
+msgstr "Mostrar l'istoric complet"
+
+#: ../src/window.py:509 ../src/page.py:140
+msgid "Bookmark added: "
+msgstr "Signet apondut : "
+
+#: ../src/window.py:566
+msgid "Print operation completed"
+msgstr "Estampatge acabat"
+
+#: ../src/window.py:572
+msgid "Print operation failed"
+msgstr "Fracàs de l'estampatge"
+
+#: ../src/window.py:587
+msgid "Link copied to clipboard"
+msgstr "Ligam copiat al quichapapièrs"
+
+#: ../src/application.py:151
+msgid "Source Code"
+msgstr "Còdi font"
+
+#: ../src/application.py:152
+msgid "Report an Issue"
+msgstr "Senhalar un problèma"
+
+#: ../src/application.py:153
+msgid "Help Translating"
+msgstr "Ajudar a revirar"
+
+#: ../src/application.py:154
+msgid "Contributors"
+msgstr "Contributors"
+
+#: ../src/application.py:155
+msgid "Flag Icons"
+msgstr "Icònas de drapèl"
+
+#: ../src/application.py:156
+#, fuzzy
+msgid "All content from Wikipedia.org and available under CC BY-SA 4.0 unless otherwise noted.\n"
+"\n"
+"Wike is an independent development not endorsed by or affiliated with the Wikimedia Foundation."
+msgstr "Tot lo contengut de Wikipedia.org es disponible jos la licéncia CC BY-SA 3.0 levat indicacion contrària.\n"
+"\n"
+"Wike es un desvelopament independent, pas aprovat o afiliat a la Foundation Wikimedia."
+
+#: ../src/page.py:102 ../src/page.py:105
+#, fuzzy
+msgid "Loading…"
+msgstr "Cargament…"
+
+#: ../src/page.py:230
+msgid "Article not Found"
+msgstr "Article pas trobat"
+
+#: ../src/page.py:238
+msgid "Can't Access Wikipedia"
+msgstr "Pòt pas accedir a Wikipedia"
+
+#: ../src/bookmarks.py:33
+msgid "Reading list"
+msgstr "Tièra de lectura"
+
+#: ../data/gtk/toc.ui:48
+msgid "No Contents"
+msgstr "Cap de contengut"
+
+#: ../data/gtk/toc.ui:49
+msgid "There is no table of contents for this page"
+msgstr "Pas cap d'ensenhador per aquesta pagina"
+
+#: ../data/gtk/search-settings.ui:23 ../data/gtk/languages.ui:11
+msgid "Pick your Languages"
+msgstr "Seleccionatz vòstras lengas"
+
+#: ../data/gtk/help-overlay.ui:32
+msgctxt "shortcut window"
+msgid "Sidebar"
+msgstr "Panèl lateral"
+
+#: ../data/gtk/help-overlay.ui:46
+msgctxt "shortcut window"
+msgid "Languages"
+msgstr "Lengas"
+
+#: ../data/gtk/help-overlay.ui:53
+msgctxt "shortcut window"
+msgid "Search text"
+msgstr "Tèxte de recercar"
+
+#: ../data/gtk/help-overlay.ui:60
+msgctxt "shortcut window"
+msgid "Print"
+msgstr "Estampar"
+
+#: ../data/gtk/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Copy link to clipboard"
+msgstr "Copiar lo ligam dins lo quichapapièrs"
+
+#: ../data/gtk/help-overlay.ui:175
+msgctxt "shortcut window"
+msgid "Main page"
+msgstr "Pagina principala"
+
+#: ../data/gtk/help-overlay.ui:189
+msgctxt "shortcut window"
+msgid "History of recent articles"
+msgstr "Istoric dels articles recents"
+
+#: ../data/gtk/help-overlay.ui:210
+msgctxt "shortcut window"
+msgid "Reload current page"
+msgstr "Recargar la pagina actuala"
+
+#: ../src/page.py:246 ../data/gtk/search.ui:24 ../data/gtk/window.ui:87
+#: ../data/gtk/window.ui:210 ../data/gtk/window.ui:356
+msgid "Search Wikipedia"
+msgstr "Recèrcar Wikipèdia"
+
+#: ../data/gtk/dialogs.ui:12
+msgid "New Bookmarks List"
+msgstr "Novèla tièra de signets"
+
+#: ../data/gtk/dialogs.ui:20 ../data/gtk/dialogs.ui:42
+msgid "List Name"
+msgstr "Nom de la lista"
+
+#: ../data/gtk/dialogs.ui:27 ../data/gtk/dialogs.ui:49
+#: ../data/gtk/dialogs.ui:66 ../data/gtk/dialogs.ui:78
+#: ../data/gtk/dialogs.ui:90
+msgid "Cancel"
+msgstr "Anullar"
+
+#: ../data/gtk/dialogs.ui:28
+msgid "Create List"
+msgstr "Crear la lista"
+
+#: ../data/gtk/dialogs.ui:34
+msgid "Rename Bookmarks List"
+msgstr "Tornar nomenar la tièra de signets"
+
+#: ../data/gtk/dialogs.ui:50
+msgid "Rename List"
+msgstr "Tornar nomenar la tièra"
+
+#: ../data/gtk/dialogs.ui:62
+msgid "Also delete the list"
+msgstr "Escafar la tièra tanben"
+
+#: ../data/gtk/dialogs.ui:73
+msgid "Clear History?"
+msgstr "Escafar l’istoric ?"
+
+#: ../data/gtk/history.ui:40 ../data/gtk/dialogs.ui:79
+msgid "Clear History"
+msgstr "Escafar l’istoric"
+
+#: ../data/gtk/prefs.ui:31
+msgid "Wikipedia main page"
+msgstr "Pagina principala Wikipedia"
+
+#: ../data/gtk/prefs.ui:32
+msgid "Random article"
+msgstr "Article a l'azard"
+
+#: ../data/gtk/window.ui:322
+msgid "New Tab"
+msgstr "Onglet novèl"
+
+#: ../data/gtk/window.ui:348 ../data/gtk/window.ui:420
+msgid "View"
+msgstr "Vista"
+
+#: ../data/gtk/window.ui:155
+msgid "Sidebar"
+msgstr "Panèl lateral"
+
+#: ../data/gtk/page.ui:27
+msgid "Search text"
+msgstr "Tèxte de recercar"
+
+#: ../src/page.py:247
+msgid "Start typing to search Wikipedia articles"
+msgstr "Començatz de picar per cercar d'articles de Wikipedia"
+
+#: ../data/gtk/menu-article.ui:30 ../data/gtk/page-status.ui:27
+msgid "Main Page"
+msgstr "Pagina principala"
+
+#: ../data/gtk/langlinks.ui:74
+msgid "No Languages"
+msgstr "Pas cap de lengas"
+
+#: ../data/gtk/langlinks.ui:75
+msgid "This page is not available in other languages"
+msgstr "Aquesta pagina es pas disponibla dins d'autras lengas"
+
+#: ../data/gtk/menu-view.ui:28
+msgid "Show"
+msgstr "Afichar"
+
+#: ../data/gtk/menu-view.ui:30
+msgid "Language Flags"
+msgstr "Drapèls de lengas"
+
+#: ../data/gtk/menu-view.ui:34
+msgid "Link Previews"
+msgstr "Apercebuts de ligam"
+
+#: ../data/gtk/history.ui:65
+msgid "Empty History"
+msgstr "Vuejar l’istoric"
+
+#: ../data/gtk/history.ui:66
+msgid "There are no recent articles in the history"
+msgstr "Pas cap d'article recent dins l'istoric"
+
+#: ../data/gtk/bookmarks.ui:73
+msgid "No Bookmarks"
+msgstr "Pas cap de signet"
+
+#: ../data/gtk/bookmarks.ui:74
+msgid "Use the Add Bookmark button or press Ctrl+D to add the current article to the list"
+msgstr "Utilisatz lo boton Apondre signet o pressatz Ctrl+D per apondre l'article corrent a la tièra"
+
+#: ../data/gtk/window.ui:100 ../data/gtk/window.ui:219
+msgid "Contents"
+msgstr "Contenguts"
+
+#: ../data/gtk/window.ui:139 ../data/gtk/window.ui:249
+msgid "History"
+msgstr "Istoric"
+
+#: ../data/gtk/menu-article.ui:16
+msgid "Print"
+msgstr "Estampar"
+
+#: ../data/gtk/menu-article.ui:21
+msgid "Search Text"
+msgstr "Tèxte de recercar"
+
+#: ../data/gtk/menu-article.ui:42
+msgid "Open in Browser"
+msgstr "Dobrir dins lo navigador"
+
+#: ../data/gtk/bookmarks-menu.ui:14
+msgid "Create New List…"
+msgstr "Crear una tièra novèla…"
+
+#: ../data/gtk/bookmarks-menu.ui:21
+msgid "Rename List…"
+msgstr "Tornar nomenar la lista…"
+
+#: ../data/gtk/bookmarks-menu.ui:25
+msgid "Clear List…"
+msgstr "Escafar la lista…"
+
+#: ../data/com.github.hugolabe.Wike.metainfo.xml.in:16
+msgid "It supports more than 300 languages and integrates with desktop searches, providing suggestions that make it easier to find any content. Other features are: bookmarks with multiple lists, article table of contents, history, text searches and much more…"
+msgstr "Supòrta mai de 300 lengas e s'intègra a la cercas dins l'environa de burèu, porgissent de proposicions qu'ajudan de trobar tot contengut. Las autras foncions son : signets amb mantuna tièra, ensenhador d'articles, istoric,cerca de tèxte e fòrça mai…"
+
+#: ../data/gtk/window.ui:304
+msgid "Back"
+msgstr "Retorn"
+
+#: ../data/gtk/window.ui:313
+msgid "Forward"
+msgstr "En avant"
+
+#: ../data/gtk/window.ui:61 ../data/gtk/window.ui:262
+msgid "Main Menu"
+msgstr "Menú principal"
+
+#: ../data/gtk/help-overlay.ui:153
+msgctxt "shortcut window"
+msgid "View open tabs"
+msgstr "Afichar los onglets dobèrts"
+
+#: ../data/gtk/prefs.ui:34
+msgid "Restore open articles"
+msgstr "Restablir los articles dobèrts"
+
+#: ../data/gtk/prefs.ui:105
+msgid "Clear Personal Data on Close"
+msgstr "Escafar las donadas personalas en tampant"
+
+#: ../data/gtk/window.ui:340 ../data/gtk/window.ui:412
+msgid "Article Menu"
+msgstr "Menú article"
+
+#: ../src/langlinks.py:32
+msgid "Your languages"
+msgstr "Vòstra lenga"
+
+#: ../src/langlinks.py:33
+msgid "All languages"
+msgstr "Totas las lengas"
+
+#: ../src/langlinks.py:109
+msgid "Other languages"
+msgstr "Autras lengas"
+
+#: ../src/languages.py:122
+msgid "1 language selected"
+msgstr "1 lenga seleccionada"
+
+#. Don't remove %s tag!
+#: ../src/languages.py:124
+msgid "%s languages selected"
+msgstr "%s lengas seleccionadas"
+
+#: ../data/gtk/langlinks.ui:32 ../data/gtk/languages.ui:27
+msgid "Search Languages"
+msgstr "Cercar de lengas"
+
+#: ../data/gtk/langlinks.ui:48 ../data/gtk/languages.ui:42
+msgid "Search languages"
+msgstr "Cercar de lengas"
+
+#: ../data/gtk/bookmarks.ui:41 ../data/gtk/history.ui:32
+msgid "Select"
+msgstr "Seleccionar"
+
+#: ../data/gtk/bookmarks.ui:118 ../data/gtk/history.ui:110
+msgid "Remove Selected"
+msgstr "Suprimir la seleccion"
+
+#: ../data/gtk/prefs.ui:44
+msgid "Always Hide Tabs"
+msgstr "Totjorn rescondre los onglets"
+
+#: ../data/gtk/prefs.ui:45
+msgid "The tab bar will also be hidden in desktop mode"
+msgstr "La barra d’onglet serà tanben resconduda en mòde burèu"
+
+#: ../data/gtk/search.ui:59
+msgid "No Results"
+msgstr "Cap de resultat"
+
+#: ../data/gtk/search.ui:60
+msgid "Enter at least three characters to get search suggestions"
+msgstr "Picatz almens tres caractèrs per obténer de suggestions de recèrca"
+
+#: ../data/gtk/window.ui:197
+msgid "Close"
+msgstr "Tampar"
+
+#: ../data/gtk/page.ui:35
+msgid "Previous Result"
+msgstr "Resultat precedent"
+
+#: ../data/gtk/page.ui:44
+msgid "Next Result"
+msgstr "Resultat seguent"
+
