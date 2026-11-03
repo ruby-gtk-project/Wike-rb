@@ -23,6 +23,8 @@
           atk
           gtk4
           libadwaita
+          # WebKitGTK 6.0 — the webkit-gtk gem's typelib and shared library.
+          webkitgtk_6_0
           harfbuzz
           librsvg
         ]
@@ -86,6 +88,7 @@
           gtk4 = rubyGnomeGem;
           graphene1 = rubyGnomeGem;
           adwaita = rubyGnomeGem;
+          webkit-gtk = rubyGnomeGem;
           rsvg2 = rubyGnomeGem;
         };
 

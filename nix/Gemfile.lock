@@ -50,6 +50,9 @@ GEM
     red-colors (0.5.0)
       json
       matrix
+    webkit-gtk (4.3.9)
+      gtk4 (= 4.3.9)
+      rake
 
 PLATFORMS
   ruby
@@ -58,6 +61,7 @@ PLATFORMS
 DEPENDENCIES
   adwaita
   gtk4
+  webkit-gtk
 
 BUNDLED WITH
    2.6.9

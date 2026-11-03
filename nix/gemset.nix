@@ -213,4 +213,15 @@
     };
     version = "0.5.0";
   };
+  webkit-gtk = {
+    dependencies = ["gtk4" "rake"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "12qgv9c5avmnyj6y76h622aq70bkbcqlh3hisxvzfi0ka80yhmrx";
+      type = "gem";
+    };
+    version = "4.3.9";
+  };
 }
