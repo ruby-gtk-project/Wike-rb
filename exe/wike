@@ -3,4 +3,9 @@
 
 require "wike"
 
-Wike::Application.new.build.run
+# Upstream's `--url` command-line option, which the shell search provider
+# uses to hand a result straight to the running (or newly started) app.
+url_index = ARGV.index('--url')
+launch_uri = url_index ? ARGV[url_index + 1].to_s : ''
+
+Wike::Application.new(launch_uri).build.run

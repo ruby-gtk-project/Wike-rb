@@ -25,6 +25,8 @@
           libadwaita
           # WebKitGTK 6.0 — the webkit-gtk gem's typelib and shared library.
           webkitgtk_6_0
+          # libsoup 3 — the soup3 gem's typelib, used by the Wikipedia client.
+          libsoup_3
           harfbuzz
           librsvg
         ]
@@ -90,6 +92,7 @@
           adwaita = rubyGnomeGem;
           webkit-gtk = rubyGnomeGem;
           rsvg2 = rubyGnomeGem;
+          soup3 = rubyGnomeGem;
         };
 
         # `makeSearchPath` would take each package's *first* output, and glib's
@@ -97,6 +100,11 @@
         # `.out`. at-spi2-core is here for the Atk typelib.
         typelibPath = pkgs.lib.makeSearchPath "lib/girepository-1.0"
           (map (drv: drv.out or drv) (gtkStack ++ [ pkgs.at-spi2-core ]));
+
+        # libsoup (the soup3 gem's transport) has no TLS backend of its own —
+        # without this GIO module on GIO_EXTRA_MODULES every HTTPS request
+        # fails with "TLS support is not available".
+        gioModulePath = "${pkgs.glib-networking}/lib/gio/modules";
 
         # nix/ and not the repo root: the root Gemfile is kettle-jem's
         # development bundle — rubocop, rspec, yard, the kettle-dev stack — and
@@ -109,9 +117,13 @@
           gemdir = ./nix;
         };
 
-        # The launcher is whatever the gemspec installs into exe/. Reading the
-        # directory keeps this flake generic: no name to keep in step by hand.
-        launcher = builtins.head (builtins.attrNames (builtins.readDir ./exe));
+        # Every executable the gemspec installs into exe/ — the app itself
+        # and, now, the standalone shell search provider service. Reading
+        # the directory keeps this flake generic: no name to keep in step by
+        # hand. `mainProgram` still has to name one, and "wike" is always the
+        # app a person runs by hand.
+        launchers = builtins.attrNames (builtins.readDir ./exe);
+        mainLauncher = "wike";
 
         # Optional directories: a port that has not grown translations or data
         # assets yet simply has none.
@@ -132,7 +144,7 @@
           # the wrapper never looks. The wrapper below is built by hand and
           # points at both the pre- and post-move paths.
           nativeBuildInputs = [ pkgs.makeWrapper ];
-          buildInputs = [ gems ] ++ gtkStack;
+          buildInputs = [ gems pkgs.glib-networking ] ++ gtkStack;
 
           dontBuild = true;
 
@@ -144,9 +156,6 @@
             for d in ${pkgs.lib.escapeShellArgs optionalDirs}; do
               cp -r "$d" $out/share/Wike/
             done
-            # exe/ sits next to lib/ so the launcher's `require "Wike"`
-            # resolves against the copied tree.
-            install -Dm755 exe/${launcher} $out/share/Wike/exe/${launcher}
 
             # Compile any GSettings schema the port ships.
             if [ -d data/schemas ]; then
@@ -155,26 +164,33 @@
               ${pkgs.glib.dev}/bin/glib-compile-schemas $out/share/glib-2.0/schemas
             fi
 
-            # -rbundler/setup puts the bundled gems on the load path, and
-            # GI_TYPELIB_PATH keeps GObject-Introspection from re-registering
-            # types the cairo gem's C extension has already registered.
-            makeWrapper ${gems.wrappedRuby}/bin/ruby $out/bin/${launcher} \
-              --add-flags "-rbundler/setup" \
-              --add-flags "-I$out/share/Wike/lib" \
-              --add-flags "$out/share/Wike/exe/${launcher}" \
-              --set GI_TYPELIB_PATH "${typelibPath}" \
-              --prefix XDG_DATA_DIRS : "$out/share" \
-              --prefix XDG_DATA_DIRS : "$out/share/gsettings-schemas/Wike-0.1.0" \
-              --prefix XDG_DATA_DIRS : "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}" \
-              --prefix XDG_DATA_DIRS : "${pkgs.gtk4}/share/gsettings-schemas/${pkgs.gtk4.name}" \
-              --prefix XDG_DATA_DIRS : "${pkgs.adwaita-icon-theme}/share"
+            ${pkgs.lib.concatMapStringsSep "\n" (launcher: ''
+              # exe/ sits next to lib/ so ${launcher}'s `require "wike/..."`
+              # resolves against the copied tree.
+              install -Dm755 exe/${launcher} $out/share/Wike/exe/${launcher}
+
+              # -rbundler/setup puts the bundled gems on the load path, and
+              # GI_TYPELIB_PATH keeps GObject-Introspection from re-registering
+              # types the cairo gem's C extension has already registered.
+              makeWrapper ${gems.wrappedRuby}/bin/ruby $out/bin/${launcher} \
+                --add-flags "-rbundler/setup" \
+                --add-flags "-I$out/share/Wike/lib" \
+                --add-flags "$out/share/Wike/exe/${launcher}" \
+                --set GI_TYPELIB_PATH "${typelibPath}" \
+                --set GIO_EXTRA_MODULES "${gioModulePath}" \
+                --prefix XDG_DATA_DIRS : "$out/share" \
+                --prefix XDG_DATA_DIRS : "$out/share/gsettings-schemas/Wike-0.1.0" \
+                --prefix XDG_DATA_DIRS : "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}" \
+                --prefix XDG_DATA_DIRS : "${pkgs.gtk4}/share/gsettings-schemas/${pkgs.gtk4.name}" \
+                --prefix XDG_DATA_DIRS : "${pkgs.adwaita-icon-theme}/share"
+            '') launchers}
 
             runHook postInstall
           '';
 
           meta = {
             description = "A Ruby GTK4 / Libadwaita port of Wike";
-            mainProgram = launcher;
+            mainProgram = mainLauncher;
             platforms = pkgs.lib.platforms.linux;
           };
         };
@@ -204,6 +220,7 @@
             pkgs.xvfb-run
             pkgs.gsettings-desktop-schemas
             pkgs.adwaita-icon-theme
+            pkgs.glib-networking
           ] ++ gtkStack;
 
           # Icons, GSettings schemas and the GTK portal all resolve through
@@ -211,6 +228,7 @@
           shellHook = ''
             export XDG_DATA_DIRS="${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:${pkgs.gtk4}/share/gsettings-schemas/${pkgs.gtk4.name}:${pkgs.adwaita-icon-theme}/share:$XDG_DATA_DIRS"
             export GI_TYPELIB_PATH="${typelibPath}''${GI_TYPELIB_PATH:+:$GI_TYPELIB_PATH}"
+            export GIO_EXTRA_MODULES="${gioModulePath}''${GIO_EXTRA_MODULES:+:$GIO_EXTRA_MODULES}"
             export RUBYLIB="$PWD/lib''${RUBYLIB:+:$RUBYLIB}"
             [ -d data/schemas ] && export GSETTINGS_SCHEMA_DIR="$PWD/data/schemas"
             unset BUNDLE_GEMFILE BUNDLE_FROZEN

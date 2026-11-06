@@ -2,7 +2,7 @@
 
 require 'adwaita'
 require 'json'
-require 'net/http'
+require 'soup3'
 require 'uri'
 
 module Wike
@@ -10,19 +10,17 @@ module Wike
   # calls the app makes, plus the shared request plumbing.
   #
   # Upstream talks to the API through libsoup 3 and its
-  # send_and_read_async/send_and_read_finish pair. There is no libsoup binding
-  # in the Ruby GNOME stack, so the transport here is Net::HTTP. The
-  # asynchronous shape is kept: the request runs on its own thread and the
-  # result is handed back to the caller from a GLib::Idle callback, so the
-  # block always runs on the main loop and may touch widgets, exactly as the
-  # libsoup callbacks upstream do.
+  # send_and_read_async/send_and_read_finish pair, which the soup3 gem binds
+  # directly: one Soup::Session shared across every call, each request a
+  # Soup::Message, and the response bytes read back on the block
+  # send_and_read_async hands its result to — already on the GLib main loop,
+  # so the block may touch widgets exactly as upstream's callback does.
   module Wikipedia
     USER_AGENT = 'Wike/3.2.1 (https://github.com/hugolabe)'
 
     # The API refuses to answer without one, and a slow network should not
-    # wedge the thread forever.
-    OPEN_TIMEOUT = 10
-    READ_TIMEOUT = 20
+    # wedge the main loop forever.
+    TIMEOUT = 10
 
     class << self
       # Get a Wikipedia random page. The block receives the article URI — or
@@ -43,22 +41,23 @@ module Wike
 
       # Search Wikipedia with a limit of responses. With a block the search
       # runs asynchronously and the block receives [titles, uris] (nil for no
-      # matches) and whether the request failed; with no block it blocks and
-      # returns the pair.
+      # matches) and whether the request failed; with no block — the shell
+      # search provider's own call, which answers a synchronous D-Bus method
+      # the way upstream's blocking call does — it runs on the spot and
+      # returns the pair directly.
       def search(text, lang, limit, &callback)
-        {
+        params = {
           'action'    => 'opensearch',
           'search'    => text,
           'limit'     => limit,
           'namespace' => 0,
           'redirects' => 'resolve',
           'format'    => 'json',
-        }.then do |params|
-          if callback
-            request(endpoint(lang), params) { |data| callback.call(search_result(data), data.nil?) }
-          else
-            search_result(fetch(endpoint(lang), params))
-          end
+        }
+        if callback
+          request(endpoint(lang), params) { |data| callback.call(search_result(data), data.nil?) }
+        else
+          search_result(fetch(endpoint(lang), params))
         end
       end
 
@@ -102,41 +101,53 @@ module Wike
 
         def endpoint(lang) = "https://#{lang}.wikipedia.org/w/api.php"
 
-        # Upstream's _request. The callback form runs the query on its own
-        # thread and returns immediately; the result is delivered on the main
-        # loop so the block may touch widgets.
+        def session
+          @session ||= Soup::Session.new.tap do |s|
+            s.user_agent = USER_AGENT
+            s.timeout = TIMEOUT
+          end
+        end
+
+        # Upstream's _request: a GET of the endpoint with the given query
+        # parameters, answered asynchronously on the main loop. The callback
+        # receives the response body for a 200, nil otherwise — including for
+        # a request that never got that far, which is upstream's "the
+        # callback raised" path.
         def request(endpoint, params, &callback)
-          Thread.new do
-            fetch(endpoint, params).then do |data|
-              GLib::Idle.add do
-                callback.call(data)
-                GLib::Source::REMOVE
-              end
+          message_for(endpoint, params).then do |message|
+            session.send_and_read_async(message, GLib::PRIORITY_DEFAULT, nil) do |soup_session, result|
+              callback.call(read_response(soup_session, message, result))
             end
           end
         end
 
-        # The blocking query. Returns the response body for a 200, nil
-        # otherwise — including for a connection that never got that far,
-        # which is upstream's "the callback raised" path.
+        # The blocking counterpart `search` uses when called without a
+        # block: the same request, answered on the spot.
         def fetch(endpoint, params)
-          URI.parse(endpoint).then do |uri|
-            uri.query = URI.encode_www_form(params)
-            Net::HTTP.start(
-              uri.host,
-              uri.port,
-              use_ssl:      true,
-              open_timeout: OPEN_TIMEOUT,
-              read_timeout: READ_TIMEOUT,
-            ) do |http|
-              http.request(Net::HTTP::Get.new(uri, 'User-Agent' => USER_AGENT)).then do |response|
-                if response.is_a?(Net::HTTPOK)
-                  response.body
-                end
-              end
+          message_for(endpoint, params).then do |message|
+            bytes = session.send_and_read(message, nil)
+            if message.status_code == Soup::Status::OK
+              bytes.to_s
             end
           end
-        rescue StandardError, Timeout::Error => e
+        rescue GLib::Error => e
+          warn "Wikipedia request failed: #{e.message}"
+          nil
+        end
+
+        def message_for(endpoint, params)
+          URI.parse(endpoint).then do |uri|
+            uri.query = URI.encode_www_form(params)
+            Soup::Message.new('GET', uri.to_s)
+          end
+        end
+
+        def read_response(soup_session, message, result)
+          bytes = soup_session.send_and_read_finish(result)
+          if message.status_code == Soup::Status::OK
+            bytes.to_s
+          end
+        rescue GLib::Error => e
           warn "Wikipedia request failed: #{e.message}"
           nil
         end

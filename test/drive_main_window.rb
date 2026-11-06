@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-# Drives the app shell: the five sidebar pages, the three header-bar menus,
-# the preferences, languages, about and shortcuts dialogs, and the data
-# stores behind the bookmarks and history panels.
+# Drives the real window: the icon bar, the five sidebar panels, the tab
+# view, the three header-bar menus, the preferences, languages, about and
+# shortcuts dialogs, and the data stores behind the bookmarks and history
+# panels.
 #
 # Run with: nix develop --command xvfb-run -a ruby test/drive_main_window.rb
 
@@ -90,22 +91,19 @@ end
 GtkDriver.drive(Wike::Application.new, shots: 'tmp/shots') do |d, app|
   d.window { app.window }
 
-  d.step('the window and the sidebar build') do
+  d.step('the window opens with one blank tab') do
     d.check('window has a title') { app.window.title == 'Wike' }
-    d.check('five sidebar pages') { app.panel_stack.pages.n_items == 5 }
-    d.check('content is the status page') { app.content_toolbar.content == app.page_status }
-    d.check('status page says Search Wikipedia') do
-      app.page_status.status_page.title == 'Search Wikipedia'
-    end
+    d.check('one tab is open') { app.window.tabview.n_pages == 1 }
+    d.check('five sidebar pages') { app.window.panel_stack.pages.n_items == 5 }
     d.shot('01-start')
   end
 
   d.step('the table of contents fills from section data') do
-    app.toc_panel.populate('Ruby (programming language)', SECTIONS)
+    app.window.toc_panel.populate('Ruby (programming language)', SECTIONS)
   end
 
   d.step('the toc shows one row per section, indented by depth') do
-    rows_of(app.toc_panel.toc_list).then do |rows|
+    rows_of(app.window.toc_panel.toc_list).then do |rows|
       d.check('three section rows') { rows.length == 3 }
       d.check('top level sits at 3px') { rows[0].section_label.margin_start == 3 }
       d.check('second level sits at 18px') { rows[1].section_label.margin_start == 18 }
@@ -114,32 +112,32 @@ GtkDriver.drive(Wike::Application.new, shots: 'tmp/shots') do |d, app|
       end
     end
     d.check('title label is set') do
-      app.toc_panel.title_label.label == 'Ruby (programming language)'
+      app.window.toc_panel.title_label.label == 'Ruby (programming language)'
     end
-    app.panel_buttons['toc'].active = true
+    app.window.panel_buttons['toc'].active = true
     d.shot('02-toc')
   end
 
   d.step('the language links fill, user languages first') do
-    app.langlinks_panel.populate(LANGLINKS)
+    app.window.langlinks_panel.populate(LANGLINKS)
   end
 
   d.step('only the user languages show while the filter is on Your languages') do
-    rows_of(app.langlinks_panel.langlinks_list).then do |rows|
+    rows_of(app.window.langlinks_panel.langlinks_list).then do |rows|
       # The user list is just `en`, and none of the three links is English,
       # so the user-languages filter leaves the list empty.
       d.check('no rows under the user-languages filter') { rows.empty? }
     end
-    app.panel_buttons['langlinks'].active = true
+    app.window.panel_buttons['langlinks'].active = true
     d.shot('03-langlinks-user')
   end
 
   d.step('switching the filter to All languages reveals the rest') do
-    app.langlinks_panel.filter_dropdown.selected = 1
+    app.window.langlinks_panel.filter_dropdown.selected = 1
   end
 
   d.step('all three languages show under a heading') do
-    rows_of(app.langlinks_panel.langlinks_list).then do |rows|
+    rows_of(app.window.langlinks_panel.langlinks_list).then do |rows|
       d.check('three links plus a heading row') { rows.length == 4 }
       d.check('the heading row is not activatable') do
         rows.any? { |row| !row.activatable? }
@@ -155,7 +153,7 @@ GtkDriver.drive(Wike::Application.new, shots: 'tmp/shots') do |d, app|
   end
 
   d.step('the bookmarks panel loaded the default reading list') do
-    rows_of(app.bookmarks_panel.bookmarks_list).then do |rows|
+    rows_of(app.window.bookmarks_panel.bookmarks_list).then do |rows|
       d.check('two bookmarks') { rows.length == 2 }
       d.check('sorted by title: Madrid before Ruby') do
         rows.map(&:title) == ['Madrid', 'Ruby']
@@ -165,87 +163,92 @@ GtkDriver.drive(Wike::Application.new, shots: 'tmp/shots') do |d, app|
       end
     end
     d.check('two lists in the dropdown') do
-      app.bookmarks_panel.booklists_model.n_items == 2
+      app.window.bookmarks_panel.booklists_model.n_items == 2
     end
-    app.panel_buttons['bookmarks'].active = true
+    app.window.panel_buttons['bookmarks'].active = true
     d.shot('05-bookmarks')
   end
 
   d.step('selecting the named list swaps the bookmarks over') do
-    app.bookmarks_panel.booklists_dropdown.selected = 1
+    app.window.bookmarks_panel.booklists_dropdown.selected = 1
   end
 
   d.step('the named list shows its own bookmark') do
-    rows_of(app.bookmarks_panel.bookmarks_list).then do |rows|
+    rows_of(app.window.bookmarks_panel.bookmarks_list).then do |rows|
       d.check('one bookmark in Programming') { rows.length == 1 }
       d.check('it is GTK') { rows.first.title == 'GTK' }
     end
     d.shot('06-booklist')
   end
 
-  d.step('selection mode reveals the check buttons') do
-    app.bookmarks_panel.selection_button.active = true
-  end
-
-  d.step('the action bar is revealed with the checks') do
-    d.check('action bar revealed') { app.bookmarks_panel.action_bar.revealed? }
-    rows_of(app.bookmarks_panel.bookmarks_list).then do |rows|
-      d.check('check button visible') { rows.first.select_check.visible? }
-    end
-    d.shot('07-selection-mode')
-  end
-
   d.step('the history panel loaded today’s article') do
-    rows_of(app.history_panel.history_list).then do |rows|
+    rows_of(app.window.history_panel.history_list).then do |rows|
       d.check('a date heading and an article row') { rows.length == 2 }
       d.check('date heading is not activatable') { !rows[0].activatable? }
       d.check('article row shows hours and minutes only') { rows[1].time == '12:30' }
       d.check('article title') { rows[1].title == 'GNOME' }
     end
-    app.panel_buttons['history'].active = true
-    d.shot('08-history')
+    app.window.panel_buttons['history'].active = true
+    d.shot('07-history')
   end
 
   d.step('the search page takes focus when selected') do
-    app.panel_buttons['search'].active = true
+    app.window.panel_buttons['search'].active = true
   end
 
   d.step('the search settings popover knows the language') do
-    d.check('search page is showing') { app.panel_stack.visible_child_name == 'search' }
-    d.check('language button is labelled en') { app.search_panel.settings_button.label == 'en' }
+    d.check('search page is showing') { app.window.panel_stack.visible_child_name == 'search' }
+    d.check('language button is labelled en') { app.window.search_panel.settings_button.label == 'en' }
     d.check('tooltip names the language') do
-      app.search_panel.settings_button.tooltip_text == 'English'
+      app.window.search_panel.settings_button.tooltip_text == 'English'
     end
-    rows_of(app.search_panel.settings_popover.languages_list).then do |rows|
+    rows_of(app.window.search_panel.settings_popover.languages_list).then do |rows|
       d.check('one user language row') { rows.length == 1 }
       d.check('it carries the checkmark') do
         rows.first.check_image.icon_name == 'checkmark-symbolic'
       end
     end
-    d.shot('09-search')
+    d.shot('08-search')
   end
 
   d.step('the zoom control reflects and changes the setting') do
-    app.view_menu_popover.zoom_level.zoom_in_button.signal_emit('clicked')
+    app.window.view_menu_popover.zoom_level.zoom_in_button.signal_emit('clicked')
   end
 
   d.step('zooming in moved the setting and the label') do
     d.check('setting is 110') { Wike::Data.settings.get_int('zoom-level') == 110 }
     d.check('label is 110%') do
-      app.view_menu_popover.zoom_level.zoom_value_button.label == '110%'
+      app.window.view_menu_popover.zoom_level.zoom_value_button.label == '110%'
     end
     d.check('reset button became sensitive') do
-      app.view_menu_popover.zoom_level.zoom_value_button.sensitive?
+      app.window.view_menu_popover.zoom_level.zoom_value_button.sensitive?
     end
   end
 
   d.step('the theme switcher activates the app action') do
-    app.view_menu_popover.theme_switcher.buttons[:dark].active = true
+    app.window.view_menu_popover.theme_switcher.buttons[:dark].active = true
   end
 
   d.step('picking dark recorded the theme') do
     d.check('theme setting is 1') { Wike::Data.settings.get_int('theme') == 1 }
-    d.shot('10-dark')
+    d.shot('09-dark')
+  end
+
+  d.step('a second tab opens') do
+    app.window.lookup_action('new-tab').activate(nil)
+  end
+
+  d.step('the tab view now has two pages') do
+    d.check('two tabs open') { app.window.tabview.n_pages == 2 }
+    d.shot('10-new-tab')
+  end
+
+  d.step('closing the tab returns to one') do
+    app.window.lookup_action('close-tab').activate(nil)
+  end
+
+  d.step('one tab remains') do
+    d.check('one tab open') { app.window.tabview.n_pages == 1 }
   end
 
   d.step('the preferences dialog opens') do
@@ -259,7 +262,7 @@ GtkDriver.drive(Wike::Application.new, shots: 'tmp/shots') do |d, app|
   end
 
   d.step('the languages dialog opens from the search settings') do
-    app.search_panel.settings_popover.languages_button.signal_emit('clicked')
+    app.window.search_panel.settings_popover.languages_button.signal_emit('clicked')
   end
 
   d.step('the languages dialog lists every Wikipedia language') do
@@ -302,21 +305,21 @@ GtkDriver.drive(Wike::Application.new, shots: 'tmp/shots') do |d, app|
   end
 
   d.step('the open-link dialog validates Wikipedia URLs') do
-    app.send(:show_open_link)
+    app.window.lookup_action('open-link').activate(nil)
   end
 
   d.step('a bad link is rejected, a good one parses') do
     app.window.visible_dialog.then do |dialog|
       d.check('a dialog is up') { !dialog.nil? }
       d.check('a non-wikipedia host is rejected') do
-        app.send(:wiki_uri, 'https://example.com/wiki/Ruby').empty?
+        Wike::WikiView.wiki_uri('https://example.com/wiki/Ruby').empty?
       end
       d.check('an article URL is accepted') do
-        app.send(:wiki_uri, 'https://en.wikipedia.org/wiki/Ruby?x=1#frag') ==
+        Wike::WikiView.wiki_uri('https://en.wikipedia.org/wiki/Ruby?x=1#frag') ==
           'https://en.wikipedia.org/wiki/Ruby'
       end
       d.check('a bare host is accepted as the main page') do
-        app.send(:wiki_uri, 'https://en.wikipedia.org') == 'https://en.wikipedia.org/'
+        Wike::WikiView.wiki_uri('https://en.wikipedia.org') == 'https://en.wikipedia.org/'
       end
       d.shot('15-open-link')
       dialog.close
@@ -324,11 +327,11 @@ GtkDriver.drive(Wike::Application.new, shots: 'tmp/shots') do |d, app|
   end
 
   d.step('closing the sidebar unpresses every selector button') do
-    app.split_view.show_sidebar = false
+    app.window.panel_split.show_sidebar = false
   end
 
   d.step('no selector button is pressed with the sidebar closed') do
-    d.check('all unpressed') { app.panel_buttons.each_value.none?(&:active?) }
+    d.check('all unpressed') { app.window.panel_buttons.each_value.none?(&:active?) }
     d.shot('16-sidebar-closed')
   end
 end
