@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Wike
+Comment=Search and read Wikipedia articles
+Icon=com.github.hugolabe.Wike
+Exec=wike
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Network;GTK;
+# Translators: Do not translate or localize the semicolons
+Keywords=Wikipedia;Encyclopedia;
+# Translators: Do not translate or transliterate this text
+X-Purism-FormFactor=Workstation;Mobile;
