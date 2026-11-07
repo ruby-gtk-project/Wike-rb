@@ -85,11 +85,11 @@ real files that the Ruby port does not have an equivalent for:
 
 | Upstream file | Purpose | Port equivalent | Exists? |
 |---|---|---|---|
-| `data/com.github.hugolabe.Wike.gschema.xml` | GSettings schema (every key `Gio::Settings` in `lib/wike/data.rb`, `window.rb`, `view_settings.rb`, `prefs_dialog.rb` binds to) | none found anywhere in the tree — only mentioned in a code comment | **no** |
-| `data/com.github.hugolabe.Wike.desktop.in` | `.desktop` launcher entry | none found | **no** |
-| `data/com.github.hugolabe.Wike.metainfo.xml.in` | AppStream metainfo (used by software centers, also the About dialog's version/description source upstream) | none found | **no** |
+| `data/com.github.hugolabe.Wike.gschema.xml` | GSettings schema (every key `Gio::Settings` in `lib/wike/data.rb`, `window.rb`, `view_settings.rb`, `prefs_dialog.rb` binds to) | `data/com.github.hugolabe.Wike.gschema.xml` now present (kept as schema-for-schema record; `Wike::Data::Settings` itself still backs these keys with a JSON file, not compiled GSettings) | yes (added since initial survey, commit 4137a32) |
+| `data/com.github.hugolabe.Wike.desktop.in` | `.desktop` launcher entry | `data/com.github.hugolabe.Wike.desktop.in` now present (DBusActivatable dropped — no service file registers `org.rubygtkproject.Wike`) | yes (added since initial survey, commit 4137a32) |
+| `data/com.github.hugolabe.Wike.metainfo.xml.in` | AppStream metainfo (used by software centers, also the About dialog's version/description source upstream) | `data/com.github.hugolabe.Wike.metainfo.xml.in` now present, with its own release history and fork-pointed bugtracker/vcs-browser | yes (added since initial survey, commit 4137a32) |
 | `data/com.github.hugolabe.Wike.gresource.xml` | GResource manifest bundling the `.ui`/css/icon files | not applicable the same way (port builds widgets declaratively, no `.ui` files), but there is correspondingly no manifest of what must ship at runtime (icons, css) | **no** (by construction, not reviewed further here) |
-| `data/com.github.hugolabe.Wike.service.in` | D-Bus service activation file for the main app | none found | **no** |
+| `data/com.github.hugolabe.Wike.service.in` | D-Bus service activation file for the main app | none found; superseded by the desktop entry's dropped `DBusActivatable` (see above) | **no** (deliberate, per commit 4137a32) |
 | `data/com.github.hugolabe.Wike.SearchProvider.service.in` | D-Bus service activation file for the search provider | `data/org.rubygtkproject.Wike.SearchProvider.service.in` exists (renamed app ID) | yes |
 | `data/com.github.hugolabe.Wike.SearchProvider.ini` | Shell search-provider registration | `data/org.rubygtkproject.Wike.SearchProvider.ini` exists | yes |
 | `data/languages/languages.json` (+ `.min.json`) | Wikipedia language list | `data/languages.json` exists | yes |
@@ -130,7 +130,13 @@ dropdown, `window.rb`'s panel-pinned/panel-page bindings) depends on it.
 
 `lib/` already has a 1:1 (or finer-grained) file for every upstream
 window, dialog, panel, row, and menu class identified in this survey —
-component coverage in `lib/` looks complete. The real gaps found are
-packaging/settings assets that no `lib/*.rb` file can substitute for:
-missing `.gschema.xml`, `.desktop.in`, and `.metainfo.xml.in` equivalents,
-and an icon-asset audit that this pass did not have time to do file-by-file.
+component coverage in `lib/` looks complete. The packaging/settings gaps
+noted in the initial pass (`.gschema.xml`, `.desktop.in`,
+`.metainfo.xml.in`) have since been closed by commit 4137a32. The
+remaining open item is an icon-asset audit (`data/icons/**`), which this
+pass still has not done file-by-file.
+
+*(Updated from the initial survey to reflect commit 4137a32, which landed
+after the first `.reports/component-inventory.md` was written; no new
+`lib/` survey beyond what is above was needed since `lib/wike/*.rb`'s
+file list is unchanged from the initial pass.)*
