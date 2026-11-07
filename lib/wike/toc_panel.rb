@@ -54,6 +54,10 @@ module Wike
     # the placeholder is all that shows.
     def populate(title, sections)
       toc_list.remove_all
+      # GtkListBox#remove_all does not re-trigger the placeholder the way
+      # removing rows one at a time does, so it is set again here to make
+      # the empty state actually appear rather than leaving a blank list.
+      toc_list.set_placeholder(placeholder)
 
       if sections && !sections.empty?
         title_label.label = title.to_s

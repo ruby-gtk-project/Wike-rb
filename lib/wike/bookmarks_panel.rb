@@ -300,6 +300,10 @@ module Wike
       def clear_list
         selection_button.active = false
         bookmarks_list.remove_all
+        # GtkListBox#remove_all does not re-trigger the placeholder the way
+        # removing rows one at a time does, so it is set again here to make
+        # the empty state actually appear rather than leaving a blank list.
+        bookmarks_list.set_placeholder(placeholder)
       end
 
       # Title first, language as the tie-breaker, as upstream's sort does.

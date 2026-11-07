@@ -164,6 +164,10 @@ module Wike
 
       def populate(suggestions)
         suggestions_list.remove_all
+        # GtkListBox#remove_all does not re-trigger the placeholder the way
+        # removing rows one at a time does, so it is set again here to make
+        # the empty state actually appear rather than leaving a blank list.
+        suggestions_list.set_placeholder(placeholder)
 
         if suggestions
           suggestions[0].zip(suggestions[1]).each do |title, uri|

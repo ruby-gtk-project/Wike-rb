@@ -208,6 +208,154 @@ GtkDriver.drive(Wike::Application.new, shots: 'tmp/shots') do |d, app|
     d.shot('06-booklist')
   end
 
+  d.step('adding a bookmark directly appends a row and leaves select mode') do
+    app.window.bookmarks_panel.selection_button.active = true
+    d.check('added returns true') do
+      app.window.bookmarks_panel.add_bookmark(
+        'https://en.wikipedia.org/wiki/Rake_(software)',
+        'Rake',
+        'en',
+      )
+    end
+  end
+
+  d.step('the new bookmark is in the list and select mode dropped') do
+    rows_of(app.window.bookmarks_panel.bookmarks_list).then do |rows|
+      d.check('two bookmarks in Programming now') { rows.length == 2 }
+      d.check('Rake is one of them') { rows.map(&:title).include?('Rake') }
+    end
+    d.check('selection mode turned off by the add') do
+      !app.window.bookmarks_panel.selection_button.active?
+    end
+  end
+
+  d.step('turning on selection mode reveals the action bar') do
+    app.window.bookmarks_panel.selection_button.active = true
+  end
+
+  d.step('select all marks every row, select none clears them') do
+    app.window.bookmarks_panel.select_all_button.signal_emit('clicked')
+    rows_of(app.window.bookmarks_panel.bookmarks_list).then do |rows|
+      d.check('select all checked every row') { rows.all? { |row| row.select_check.active? } }
+    end
+    app.window.bookmarks_panel.select_none_button.signal_emit('clicked')
+    rows_of(app.window.bookmarks_panel.bookmarks_list).then do |rows|
+      d.check('select none cleared every row') { rows.none? { |row| row.select_check.active? } }
+    end
+    rows_of(app.window.bookmarks_panel.bookmarks_list).first.select_check.active = true
+    d.shot('06a-bookmarks-select-mode')
+  end
+
+  d.step('removing the marked bookmark deletes it and saves') do
+    app.window.bookmarks_panel.remove_button.signal_emit('clicked')
+  end
+
+  d.step('one bookmark remains in Programming, selection mode off') do
+    rows_of(app.window.bookmarks_panel.bookmarks_list).then do |rows|
+      d.check('back to one bookmark') { rows.length == 1 }
+    end
+  end
+
+  d.step('the overflow menu opens and rename is disabled on the default list') do
+    app.window.bookmarks_panel.booklists_dropdown.selected = 0
+    app.window.bookmarks_panel.menu_button.popup
+  end
+
+  d.step('rename-list is disabled while the default reading list is selected') do
+    d.check('menu popover is visible') { app.window.bookmarks_panel.menu_popover.visible? }
+    d.check('rename-list disabled on the default list') do
+      !app.window.bookmarks_panel.actions.lookup_action('rename-list').enabled?
+    end
+    app.window.bookmarks_panel.menu_popover.popdown
+    app.window.bookmarks_panel.booklists_dropdown.selected = 1
+  end
+
+  d.step('create-list opens the new-list dialog') do
+    app.window.bookmarks_panel.actions.lookup_action('create-list').activate(nil)
+  end
+
+  d.step('an empty name leaves Create disabled, a fresh name enables it') do
+    app.window.visible_dialog.then do |dialog|
+      d.check('a dialog is up') { !dialog.nil? }
+      d.check('it is the new-booklist dialog') { dialog.is_a?(Wike::Dialogs::NewBooklistDialog) }
+      d.check('Create starts disabled on an empty name') do
+        !dialog.get_response_enabled(Wike::Dialogs::CREATE)
+      end
+      dialog.name_entry.text = 'Programming'
+      dialog.name_entry.signal_emit('changed')
+      d.check('a name already taken keeps Create disabled') do
+        !dialog.get_response_enabled(Wike::Dialogs::CREATE)
+      end
+      d.check('a taken name marks the entry as an error') do
+        dialog.name_entry.has_css_class?('error')
+      end
+      dialog.name_entry.text = 'Gems'
+      dialog.name_entry.signal_emit('changed')
+      d.check('a fresh name enables Create') { dialog.get_response_enabled(Wike::Dialogs::CREATE) }
+      d.shot('06b-new-booklist')
+      dialog.signal_emit('response', Wike::Dialogs::CREATE)
+      dialog.close
+    end
+  end
+
+  d.step('the new list exists and is selected') do
+    d.check('three lists in the dropdown now') do
+      app.window.bookmarks_panel.booklists_model.n_items == 3
+    end
+    d.check('Gems is the selected list') do
+      app.window.bookmarks_panel.booklists_dropdown.selected_item.string == 'Gems'
+    end
+    d.check('the new list starts empty') { rows_of(app.window.bookmarks_panel.bookmarks_list).empty? }
+  end
+
+  d.step('rename-list opens the rename dialog pre-filled with the current name') do
+    # Reopen the overflow menu first: it is what flips rename-list back to
+    # enabled now that a renameable list is selected, exactly as it did (to
+    # disabled) in the earlier default-list check.
+    panel = app.window.bookmarks_panel
+    panel.menu_button.popup
+    panel.menu_popover.popdown
+    panel.actions.lookup_action('rename-list').activate(nil)
+  end
+
+  d.step('renaming to Ruby Gems swaps the dropdown entry over') do
+    app.window.visible_dialog.then do |dialog|
+      d.check('a dialog is up') { !dialog.nil? }
+      d.check('it is the rename dialog') { dialog.is_a?(Wike::Dialogs::RenameBooklistDialog) }
+      d.check('pre-filled with the current name') { dialog.name_entry.text == 'Gems' }
+      dialog.name_entry.text = 'Ruby Gems'
+      dialog.name_entry.signal_emit('changed')
+      dialog.signal_emit('response', Wike::Dialogs::RENAME)
+      dialog.close
+    end
+    d.check('the dropdown now shows the new name') do
+      app.window.bookmarks_panel.booklists_dropdown.selected_item.string == 'Ruby Gems'
+    end
+  end
+
+  d.step('clear-list opens the clear-booklist dialog with delete enabled') do
+    app.window.bookmarks_panel.actions.lookup_action('clear-list').activate(nil)
+  end
+
+  d.step('confirming clear with delete checked removes the list entirely') do
+    app.window.visible_dialog.then do |dialog|
+      d.check('a dialog is up') { !dialog.nil? }
+      d.check('delete checkbox is enabled for a non-default list') do
+        dialog.delete_booklist_check.sensitive?
+      end
+      dialog.delete_booklist_check.active = true
+      d.shot('06c-clear-booklist')
+      dialog.signal_emit('response', Wike::Dialogs::CLEAR)
+      dialog.close
+    end
+    d.check('back to the original two lists') do
+      app.window.bookmarks_panel.booklists_model.n_items == 2
+    end
+    d.check('selection fell back to the default reading list') do
+      app.window.bookmarks_panel.booklists_dropdown.selected.zero?
+    end
+  end
+
   d.step('the history panel loaded today’s article') do
     rows_of(app.window.history_panel.history_list).then do |rows|
       d.check('a date heading and an article row') { rows.length == 2 }
@@ -217,6 +365,85 @@ GtkDriver.drive(Wike::Application.new, shots: 'tmp/shots') do |d, app|
     end
     app.window.panel_buttons['history'].active = true
     d.shot('07-history')
+  end
+
+  d.step('adding a history item directly appends it, newest heading first') do
+    app.window.history_panel.add_item(
+      'https://en.wikipedia.org/wiki/Matz',
+      'Matz',
+      'en',
+    )
+  end
+
+  d.step('the new article shows under today, ahead of the seeded one') do
+    rows_of(app.window.history_panel.history_list).then do |rows|
+      d.check('still one date heading, now two articles') { rows.length == 3 }
+      d.check('the newest article sorts first') { rows[1].title == 'Matz' }
+    end
+  end
+
+  d.step('turning on selection mode reveals the history action bar') do
+    app.window.history_panel.selection_button.active = true
+  end
+
+  d.step('select all marks every article row, select none clears them') do
+    app.window.history_panel.select_all_button.signal_emit('clicked')
+    rows_of(app.window.history_panel.history_list).then do |rows|
+      article_rows = rows.select(&:activatable?)
+      d.check('select all checked every article row') do
+        article_rows.all? { |row| row.select_check.active? }
+      end
+    end
+    app.window.history_panel.select_none_button.signal_emit('clicked')
+    rows_of(app.window.history_panel.history_list).then do |rows|
+      article_rows = rows.select(&:activatable?)
+      d.check('select none cleared every article row') do
+        article_rows.none? { |row| row.select_check.active? }
+      end
+      article_rows.find { |row| row.title == 'Matz' }.select_check.active = true
+    end
+    d.shot('07a-history-select-mode')
+  end
+
+  d.step('removing the marked article leaves the seeded one behind') do
+    app.window.history_panel.remove_button.signal_emit('clicked')
+  end
+
+  d.step('back to the single seeded article, selection mode off') do
+    rows_of(app.window.history_panel.history_list).then do |rows|
+      d.check('a date heading and the one remaining article') { rows.length == 2 }
+      d.check('it is the seeded GNOME article') { rows[1].title == 'GNOME' }
+    end
+  end
+
+  d.step('the clear-history button opens the confirmation dialog') do
+    app.window.history_panel.clear_button.signal_emit('clicked')
+  end
+
+  d.step('confirming clear empties the history entirely') do
+    app.window.visible_dialog.then do |dialog|
+      d.check('a dialog is up') { !dialog.nil? }
+      d.check('it is the clear-history dialog') { dialog.is_a?(Wike::Dialogs::ClearHistoryDialog) }
+      d.shot('07b-clear-history')
+      dialog.signal_emit('response', Wike::Dialogs::CLEAR)
+      dialog.close
+    end
+  end
+
+  d.step('the history list is empty') do
+    d.check('no rows left') { rows_of(app.window.history_panel.history_list).empty? }
+  end
+
+  d.step('the empty-history placeholder is on screen, one tick later') do
+    d.check('placeholder widget is set') { !app.window.history_panel.placeholder.nil? }
+    d.check('placeholder is visible') { app.window.history_panel.placeholder.visible? }
+    d.check('placeholder names the empty state') do
+      app.window.history_panel.placeholder.title == 'Empty History'
+    end
+    d.check('placeholder is actually mapped on screen') do
+      app.window.history_panel.placeholder.mapped?
+    end
+    d.shot('07c-history-empty')
   end
 
   d.step('the search page takes focus when selected') do

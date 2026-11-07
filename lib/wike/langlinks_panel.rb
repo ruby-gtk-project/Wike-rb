@@ -95,6 +95,10 @@ module Wike
     def populate(langlinks)
       @langlinks = langlinks
       langlinks_list.remove_all
+      # GtkListBox#remove_all does not re-trigger the placeholder the way
+      # removing rows one at a time does, so it is set again here to make
+      # the empty state actually appear rather than leaving a blank list.
+      langlinks_list.set_placeholder(placeholder)
 
       if langlinks
         partition(langlinks).then do |user_langlinks, other_langlinks|
