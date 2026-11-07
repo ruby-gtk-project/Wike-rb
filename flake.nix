@@ -164,6 +164,27 @@
               ${pkgs.glib.dev}/bin/glib-compile-schemas $out/share/glib-2.0/schemas
             fi
 
+            # The shell search provider's D-Bus activation and registration
+            # files — upstream's data/com.github.hugolabe.Wike.SearchProvider.ini
+            # and .service.in, carried over under this port's own app id. The
+            # .ini is what tells GNOME Shell this bus name answers
+            # SearchProvider2 at all; the .service is what lets the bus
+            # start wike-search-provider itself the first time the shell
+            # asks for it, rather than requiring it already be running.
+            # @bindir@ is the one substitution meson's configure_file does
+            # for the .service.in that still applies once installed here.
+            if [ -f data/org.rubygtkproject.Wike.SearchProvider.ini ]; then
+              mkdir -p $out/share/gnome-shell/search-providers \
+                $out/share/dbus-1/services
+
+              install -Dm644 data/org.rubygtkproject.Wike.SearchProvider.ini \
+                $out/share/gnome-shell/search-providers/org.rubygtkproject.Wike.SearchProvider.ini
+
+              sed "s|@bindir@|$out/bin|g" \
+                data/org.rubygtkproject.Wike.SearchProvider.service.in \
+                > $out/share/dbus-1/services/org.rubygtkproject.Wike.SearchProvider.service
+            fi
+
             ${pkgs.lib.concatMapStringsSep "\n" (launcher: ''
               # exe/ sits next to lib/ so ${launcher}'s `require "wike/..."`
               # resolves against the copied tree.

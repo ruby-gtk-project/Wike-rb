@@ -36,12 +36,21 @@ module Wike
       ['theme-system', 3, :prefer_light, false],
     ].freeze
 
-    def initialize(launch_uri = '')
-      @launch_uri = launch_uri
+    def initialize
+      @launch_uri = ''
     end
 
     def build
       app.tap do
+        app.add_main_option(
+          'url',
+          'u'.ord,
+          GLib::OptionFlags::NONE,
+          GLib::OptionArg::STRING,
+          'Open Wikipedia URL',
+          nil,
+        )
+
         app.signal_connect('startup') do
           Style.install
           Data.install_icons
@@ -49,17 +58,23 @@ module Wike
           add_app_actions
         end
 
+        app.signal_connect('command-line') { |_app, command_line| on_command_line(command_line) }
         app.signal_connect('activate') { activate }
       end
     end
 
-    def run = app.run([])
+    def run = app.run([$PROGRAM_NAME, *ARGV])
 
     # Memoized widget methods
 
     # Adwaita::Application is unreliable in the Ruby bindings; the
     # application object comes from Gtk and only the window is Adwaita.
-    def app = @app ||= Gtk::Application.new(APP_ID, :default_flags)
+    #
+    # :handles_command_line is upstream's HANDLES_COMMAND_LINE flag: without
+    # it, GLib never hands this process's `--url` argument to an
+    # already-running instance at all, so a second launch could only ever
+    # open the main page, never the page the shell search provider asked for.
+    def app = @app ||= Gtk::Application.new(APP_ID, :handles_command_line)
     def style_manager = @style_manager ||= Adwaita::StyleManager.default
 
     def window
@@ -73,6 +88,24 @@ module Wike
 
       def activate
         window.present
+      end
+
+      # Upstream's do_command_line: a `--url` argument becomes the page a
+      # fresh window opens on, or, when the window already exists (this
+      # process was just handed the argument by GLib's single-instance
+      # forwarding), a new tab opened on the running window right away.
+      # Either way this ends by activating, exactly as upstream does.
+      def on_command_line(command_line)
+        command_line.options_dict.lookup('url', 's').then do |url|
+          if url
+            @launch_uri = url
+            if @window
+              window.new_page(@launch_uri, nil, true)
+            end
+          end
+        end
+        app.activate
+        0
       end
 
       # Upstream's do_close_request: closing the window is the same as
