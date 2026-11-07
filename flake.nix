@@ -221,6 +221,11 @@
             pkgs.gsettings-desktop-schemas
             pkgs.adwaita-icon-theme
             pkgs.glib-networking
+            # test/drive_main_window.rb fires one accelerator (Ctrl+T) as a
+            # real X key event rather than an action activation: GTK4 has no
+            # public way to forge a Gdk key event, so the keystroke has to
+            # come from the X server, and xdotool is what puts it there.
+            pkgs.xdotool
           ] ++ gtkStack;
 
           # Icons, GSettings schemas and the GTK portal all resolve through

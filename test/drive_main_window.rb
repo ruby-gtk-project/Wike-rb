@@ -17,6 +17,7 @@ ENV['XDG_DATA_HOME'] = File.join(scratch, 'data')
 $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 
 require 'wike'
+require 'wike/shell_search_provider'
 require_relative 'gtk_driver'
 
 # Seed the stores so the panels have something to show.
@@ -78,6 +79,11 @@ LANGLINKS = [
   },
 ].freeze
 
+# Runs xdotool against the display the driver is already on, quietly.
+def xdotool(*args)
+  system('xdotool', *args, out: File::NULL, err: File::NULL)
+end
+
 def rows_of(list_box)
   [].tap do |collected|
     index = 0
@@ -96,6 +102,27 @@ GtkDriver.drive(Wike::Application.new, shots: 'tmp/shots') do |d, app|
     d.check('one tab is open') { app.window.tabview.n_pages == 1 }
     d.check('five sidebar pages') { app.window.panel_stack.pages.n_items == 5 }
     d.shot('01-start')
+  end
+
+  # GTK4 has no public way to forge a Gdk key event
+  # (gtk_event_controller_key_forward asserts on a NULL current event), so
+  # the one keyboard shortcut this drive fires as a real keystroke, rather
+  # than by activating its action directly, goes through xdotool against the
+  # Xvfb display this run is already on. `^Wike$` is unambiguous because the
+  # window's title is still the bare app name at this point in the run.
+  d.step('Ctrl+T is pressed as a real key combo, not an action activation') do
+    d.check('xdotool is on PATH to drive the keyboard with') { xdotool('--version') }
+    xdotool('search', '--name', '^Wike$', 'windowfocus', '--sync')
+    xdotool('key', '--clearmodifiers', 'ctrl+t')
+  end
+
+  d.step('the real keypress reached win.new-tab, not just its action') do
+    d.check('a second tab opened from the keyboard') { app.window.tabview.n_pages == 2 }
+    app.window.lookup_action('close-tab').activate(nil)
+  end
+
+  d.step('closing it again leaves a single tab, as before the keypress') do
+    d.check('back to one tab') { app.window.tabview.n_pages == 1 }
   end
 
   d.step('the table of contents fills from section data') do
@@ -232,6 +259,99 @@ GtkDriver.drive(Wike::Application.new, shots: 'tmp/shots') do |d, app|
   d.step('picking dark recorded the theme') do
     d.check('theme setting is 1') { Wike::Data.settings.get_int('theme') == 1 }
     d.shot('09-dark')
+  end
+
+  d.step('the main menu popover opens from the hamburger button') do
+    app.window.main_button.popup
+  end
+
+  d.step('it is showing, wired to the app actions it lists') do
+    d.check('popover is visible') { app.window.main_menu_popover.visible? }
+    d.check('three items declared') { Wike::MainMenuPopover::ITEMS.length == 3 }
+    d.check('app.prefs exists') { !app.app.lookup_action('prefs').nil? }
+    d.check('app.shortcuts exists') { !app.app.lookup_action('shortcuts').nil? }
+    d.check('app.about exists') { !app.app.lookup_action('about').nil? }
+    app.window.main_menu_popover.popdown
+  end
+
+  d.step('the article menu popover opens from the article button') do
+    app.window.article_button.popup
+  end
+
+  d.step('it is showing, wired to the window actions it lists') do
+    d.check('popover is visible') { app.window.article_menu_popover.visible? }
+    d.check('two button items, two sections') do
+      Wike::ArticleMenuPopover::BUTTONS.length == 2 &&
+        Wike::ArticleMenuPopover::SECTIONS.length == 2
+    end
+    %w[print-page search-text main-page random-article open-link open-browser
+       copy-link].each do |action|
+      d.check("win.#{action} exists") { !app.window.lookup_action(action).nil? }
+    end
+    app.window.article_menu_popover.popdown
+  end
+
+  # win.search-text is one of ARTICLE_ACTIONS, which refresh_menu_actions
+  # disables while the current tab is a status page rather than a live
+  # article — exactly the state a network-free drive run is in — so this
+  # calls the page box's own method instead of going through the
+  # (possibly disabled) action, the same way `d.step` elsewhere calls
+  # `show_prefs`/`show_about` directly rather than their menu actions.
+  d.step('the in-article search bar opens on the current page') do
+    app.window.page.show_text_search
+  end
+
+  d.step('it is showing, ready to type into') do
+    d.check('search bar is in search mode') { app.window.page.search_bar.search_mode? }
+    app.window.page.search_bar.search_mode = false
+  end
+
+  d.step('the status page runs through its three message states') do
+    status = Wike::PageStatus.new(on_try_again: -> {})
+    status.build
+
+    status.show(Wike::PageStatus::BLANK)
+    d.check('blank state invites a search') { status.status_page.title == 'Search Wikipedia' }
+    d.check('blank state offers the main page and a random article') do
+      status.main_page_button.visible? && status.random_article_button.visible?
+    end
+
+    status.show(Wike::PageStatus::NOT_FOUND)
+    d.check('not-found state names the failed query') do
+      status.status_page.title == 'Article not Found'
+    end
+    d.check('not-found state has no try-again button') { !status.try_again_button.visible? }
+
+    status.show(Wike::PageStatus::ERROR)
+    d.check('error state names the connection problem') do
+      status.status_page.title == 'Can’t Access Wikipedia'
+    end
+    d.check('error state offers try-again and nothing else') do
+      status.try_again_button.visible? && !status.main_page_button.visible?
+    end
+  end
+
+  d.step('the shell search provider answers a query without the window') do
+    Wike::Data.settings.set_boolean('search-desktop', false)
+    provider = Wike::ShellSearchProvider.new
+
+    results = provider.get_initial_result_set(%w[ruby programming])
+    d.check('a fallback web-search result for the typed terms') do
+      results == ["search:en:ruby programming"]
+    end
+
+    metas = provider.get_result_metas(results)
+    d.check('the result meta carries the quoted search text') do
+      metas.length == 1 && metas.first[1].include?('ruby programming')
+    end
+
+    d.check('too-short a query clears the results') do
+      provider.get_initial_result_set(['a']).empty?
+    end
+
+    d.check('a language prefix is recognised and stripped') do
+      provider.get_initial_result_set(%w[-es madrid]).first.start_with?('search:es:')
+    end
   end
 
   d.step('a second tab opens') do
