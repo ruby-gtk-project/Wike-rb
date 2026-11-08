@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | Upstream | `master` @ `b9ebebc` |
-| Port | `ruby` @ `79db2b8` |
+| Port | `ruby` @ `55574ba` |
 | Domain | `wike` (matches; `domain_matches: true`) |
 | Upstream messages | 178 |
 | Ported | 28 |

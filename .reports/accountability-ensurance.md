@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | Upstream | `master` @ `b9ebebc` |
-| Port | `ruby` @ `79db2b8` |
+| Port | `ruby` @ `55574ba` |
 | Scanned | `lib/`, `exe/`, `.reports/`, `PORTING.md` (absent — see below) |
 
 No `PORTING.md` or `FINDINGS.md` exists anywhere in this fork. There is
@@ -128,6 +128,34 @@ behaviour, and "the same key names in a file nobody validates the type or
 range of" is not the same behaviour as a `Gio::Settings`-backed store, it
 is a weaker one wearing its name.
 
+## Hit 5 — the reported runtime gate ("115 checks passed, 0 failed, 30 components")
+
+Not a sentence in the tree — a number handed down for this round's audit,
+and the sharpest instance of this skill's whole subject, because it is the
+**false green** the skill's own instructions name as the most serious
+possible finding. Re-run live, twice, in this session: `114 of 115 checks
+passed`, `failed check: the newest article sorts first`, same check both
+times, root cause identified and reproducible on demand (`test-parity.md`,
+`component-parity.md` Gap 4). It is not a flake — it fails deterministically
+whenever the wall clock reads before the fixture's hardcoded `12:30:00`, and
+will keep doing so until that time of day, then quietly pass again for the
+wrong reason tomorrow morning.
+
+There is no first-person rewrite here because no comment in the tree claims
+this — it is a number asserted about the tree from outside it. What belongs
+in this slot is the same discipline this skill asks of every comment: the
+runtime gate for a round must be the result of actually running the suite
+at the time the round's claim is made, not a number carried forward from a
+previous green run, and not a number from a run that happened to land on
+the right side of a clock-dependent bug. A reporting process that lets "I
+ran it once, it was green, I'm done" stand in for "I ran it and it is green
+right now" will keep producing exactly this: a documented 115/115 that a
+second run, an hour later or a day earlier, falsifies. The fix belongs in
+`lib/wike/data.rb`/`lib/wike/history_panel.rb` (store and sort by a real
+timestamp, not a bare time-of-day string) — see `component-parity.md` Gap
+4 — and the process fix is: nobody should write "N checks passed, 0 failed"
+into a round's claim without the command's output, from that run, in hand.
+
 ## What the scan did not find
 
 - No `TODO`, `FIXME`, `not implemented`, `for now` or `in a future` string
@@ -151,4 +179,11 @@ Every gap named in `component-parity.md` and `translation-parity.md` is
 real and is not excused anywhere in the tree by a document with the
 authority to excuse it — because no such document or authority exists. The
 two prose hits above were presenting unmade decisions (schema substitution,
-"not ported yet") as settled; both are now named for what they are.
+"not ported yet") as settled; both are now named for what they are. Hit 3's
+own stale comment at `lib/wike/page_status.rb:13-15` was flagged, in prose,
+by the *previous* round of this report and is **still unchanged in the
+source today** — the rewrite was written into `.reports/` but never applied
+to the file it is about, which is the exact "the note is written, the code
+is not" gap this skill exists to keep from becoming invisible. And Hit 5 —
+a reported green runtime gate that a live re-run falsifies — is the most
+serious single finding in this entire round.

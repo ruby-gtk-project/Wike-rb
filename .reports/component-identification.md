@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | Upstream | `master` @ `b9ebebc` (hugolabe/Wike, Python/GTK4/Libadwaita; the fork has no `main` ref) |
-| Port | `ruby` @ `79db2b8` |
+| Port | `ruby` @ `55574ba` |
 
 This supersedes/extends `.reports/component-inventory.md` (written earlier in
 this fork's history, before commit `4137a32` added `data/*.gschema.xml`,

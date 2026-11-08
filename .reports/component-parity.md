@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | Upstream | `master` @ `b9ebebc` |
-| Port | `ruby` @ `79db2b8` |
+| Port | `ruby` @ `55574ba` |
 | Units with full (4-axis) parity | not computed exhaustively; see per-unit findings below — this pass is adversarial and targeted at the units with a suspected gap, not a full 37-unit sweep |
 
 This fork's house widget mapping (type/CSS/signal/action, per
@@ -71,6 +71,31 @@ Verdict: **gap**, behavioural. Fixing it does not require live network
 access — a stubbed `Soup::Session` response is standard — but one does not
 exist.
 
+## Gap 4 — `history_panel.rb`'s sort-within-a-day is wrong, and the drive suite proves it live
+
+`lib/wike/history_panel.rb:231` sorts a day's history rows by the
+HH:MM:SS *time-of-day* string stamped by `lib/wike/data.rb:195-196`
+(`Time.now.strftime('%H:%M:%S')`) and reverses it, on the assumption that a
+later clock-time means a more-recently-added article. That assumption is
+false across exactly the boundary upstream's own data model (one JSON
+bucket per calendar date, newest-first within it) exists to handle: two
+articles added on the same calendar date, where the second one is added
+*after midnight relative to the session* or otherwise has a smaller
+HH:MM:SS than the first, sort in the wrong order. `test/drive_main_window.rb`
+exercises exactly this path — seed one article at the fixed time `12:30:00`,
+add a second "now" — and it fails whenever "now" reads before `12:30:00`,
+which is most hours of the day. See `test-parity.md` for the live,
+reproduced failure (`114 of 115 checks passed`, run twice, same check both
+times, at `00:10 UTC`).
+
+Verdict: **gap**, behavioural, and currently demonstrated rather than
+theoretical. A user who opens two articles within the same calendar day
+will see them in the wrong order under this exact condition. It is not a
+component the port forgot to build — `history_panel.rb` exists and the
+sort line is right there — it is a genuine logic bug the drive harness
+already catches, that nobody fixed before reporting this round's gate as
+green.
+
 ## Text axis
 
 Deferred to `translation-parity.md` in full, because it is not a per-unit
@@ -87,10 +112,13 @@ text gap is recorded in both ledgers.
   upstream's equivalents (file renamed per the port's own app id, same
   content) — `component-inventory.md`'s earlier table confirms this and it
   was spot-checked again here.
-- The 20 units exercised by `test/drive_main_window.rb` (window, toc, bookmarks
-  + its dialogs, history, search settings, zoom, theme switcher, main/article
-  menu popovers, in-article search, status page, shell search provider, tab
-  view, preferences, languages dialog, about, shortcuts, open-link dialog,
-  sidebar selectors) were watched pass live in this session (see
-  `test-parity.md` for the run) — their count and behaviour axes have real
-  evidence behind them, not just a file existing.
+- The ~20 units exercised by `test/drive_main_window.rb` (window, toc,
+  bookmarks + its dialogs, history, search settings, zoom, theme switcher,
+  main/article menu popovers, in-article search, status page, shell search
+  provider, tab view, preferences, languages dialog, about, shortcuts,
+  open-link dialog, sidebar selectors) were watched run live in this session
+  (see `test-parity.md` for the run) — their count and behaviour axes have
+  real evidence behind them, not just a file existing, **except the history
+  panel**, whose one sorting check actually failed live (Gap 4) — "watched
+  pass" overstates it for that one unit, and the overstatement is corrected
+  here rather than repeated.
