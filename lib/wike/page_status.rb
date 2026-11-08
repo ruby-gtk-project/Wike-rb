@@ -12,9 +12,10 @@ module Wike
   # of the three buttons are visible, and which one takes focus.
   #
   # Upstream's `show` ends by switching its page's view stack to this status
-  # page. That stack belongs to the page box, which is not ported yet, so the
-  # last line of `show` is the host's business and not this widget's; here the
-  # status page is the content area outright.
+  # page. That stack belongs to PageBox (lib/wike/page_box.rb), which does
+  # the switch itself (page_box.rb's view stack, window.rb:708); the last
+  # line of upstream's `show` is that host's business, not this widget's, so
+  # here the status page is the content area outright.
   #
   # The one callback is on_try_again, for the button that reloads whichever
   # article failed — the failed URI is the host's, as upstream's fail_uri is

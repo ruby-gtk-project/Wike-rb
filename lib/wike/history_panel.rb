@@ -224,12 +224,18 @@ module Wike
         Float::INFINITY
       end
 
-      # Within a date, upstream sorts by the stored value — time first — and
-      # reverses it, so the most recent article of the day comes first.
+      # Within a date, sort by the item's real timestamp (date and
+      # time-of-day together) and reverse it, so the most recent article of
+      # the day comes first. A bare HH:MM:SS time-of-day string can't tell
+      # which of two items came later without the date attached to it, so
+      # `add` stores a fourth element with both; an item saved before that
+      # field existed falls back to the surrounding date plus its own
+      # time-of-day, which is the best ordering the old data has.
       def append_articles(date)
         Data.history.items[date].then do |items|
-          items.keys.sort_by { |uri| items[uri] }.reverse.each do |uri|
-            items[uri].then do |time, title, lang|
+          sort_key = ->(uri) { items[uri][3] || "#{date} #{items[uri][0]}" }
+          items.keys.sort_by(&sort_key).reverse.each do |uri|
+            items[uri].then do |time, title, lang, _timestamp|
               HistoryRow.new(
                 uri,
                 title,

@@ -41,6 +41,12 @@ File.write(
   ),
   '{"Programming":{"https://en.wikipedia.org/wiki/GTK":["GTK","en"]}}',
 )
+# Seeded at the script's own start time rather than a fixed clock value, so
+# the 'newest article sorts first' check below (which adds a second item
+# later, at whatever the real current time is by then) is guaranteed to see
+# the seeded item as older — real time only moves forward from here — and
+# is not at the mercy of what time of day the suite happens to run.
+seeded_at = Time.now
 File.write(
   File.join(
     scratch,
@@ -48,8 +54,10 @@ File.write(
     'wike-rb',
     'historic.json',
   ),
-  "{\"#{Time.now.strftime('%Y-%m-%d')}\":" \
-  '{"https://en.wikipedia.org/wiki/GNOME":["12:30:00","GNOME","en"]}}',
+  "{\"#{seeded_at.strftime('%Y-%m-%d')}\":" \
+  "{\"https://en.wikipedia.org/wiki/GNOME\":[\"#{seeded_at.strftime('%H:%M:%S')}\"," \
+  '"GNOME","en",' \
+  "\"#{seeded_at.strftime('%Y-%m-%d %H:%M:%S')}\"]}}",
 )
 
 SECTIONS = [
@@ -360,7 +368,9 @@ GtkDriver.drive(Wike::Application.new, shots: 'tmp/shots') do |d, app|
     rows_of(app.window.history_panel.history_list).then do |rows|
       d.check('a date heading and an article row') { rows.length == 2 }
       d.check('date heading is not activatable') { !rows[0].activatable? }
-      d.check('article row shows hours and minutes only') { rows[1].time == '12:30' }
+      d.check('article row shows hours and minutes only') do
+        rows[1].time == seeded_at.strftime('%H:%M')
+      end
       d.check('article title') { rows[1].title == 'GNOME' }
     end
     app.window.panel_buttons['history'].active = true

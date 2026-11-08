@@ -190,11 +190,20 @@ module Wike
         end
       end
 
+      # The stored tuple carries a fourth element, a full date+time
+      # timestamp, alongside the bare time-of-day string upstream keeps for
+      # display. A history row's actual chronological position can't be
+      # recovered from the time-of-day alone (today's 00:10 entry is not
+      # "later" than yesterday's 23:50 one, even though "00:10" < "23:50"
+      # lexically and nothing about the bare string says which day it
+      # belongs to beyond the outer date key) — the panel's "newest first"
+      # sort within a day needs the real timestamp, not the clock face.
       def add(uri, title, lang)
         Time.now.then do |now|
           date = now.strftime('%Y-%m-%d')
           time = now.strftime('%H:%M:%S')
-          (@items[date] ||= {})[uri] = [time, title, lang]
+          timestamp = now.strftime('%Y-%m-%d %H:%M:%S')
+          (@items[date] ||= {})[uri] = [time, title, lang, timestamp]
         end
       end
 
