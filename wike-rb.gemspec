@@ -96,6 +96,11 @@ Gem::Specification.new do |spec|
   spec.executables = ["wike", "wike-search-provider"]
   spec.require_paths = ["lib"]
 
+  spec.add_dependency("adwaita", "~> 4.3")                                          # Adw.* widgets
+  spec.add_dependency("gtk4", "~> 4.3")                                             # Gtk.*, Gio.*, GLib.*
+  spec.add_dependency("soup3", "~> 1.0")                                            # Soup.* — the Wikipedia API client
+  spec.add_dependency("webkit-gtk", "~> 4.3")                                       # WebKit.WebView
+
   # NOTE: It is preferable to list development dependencies in the gemspec due to increased
   #       visibility and discoverability.
   #       However, development dependencies in gemspec will install on
@@ -108,14 +113,6 @@ Gem::Specification.new do |spec|
   #
   #       Development dependencies that require strictly newer Ruby versions should be in a "gemfile",
   #       and preferably a modular one (see gemfiles/modular/*.gemfile).
-
-  # Runtime — the GObject-Introspection bindings every widget file requires.
-  # Upstream's Python sources import GLib, Gio, Gdk, Gtk, Adw and WebKit;
-  # these are the Ruby equivalents of those imports.
-  spec.add_dependency("adwaita", "~> 4.3")                                          # Adw.* widgets
-  spec.add_dependency("gtk4", "~> 4.3")                                             # Gtk.*, Gio.*, GLib.*
-  spec.add_dependency("soup3", "~> 1.0")                                            # Soup.* — the Wikipedia API client
-  spec.add_dependency("webkit-gtk", "~> 4.3")                                       # WebKit.WebView
 
   # Dev, Test, & Release Tasks
   spec.add_development_dependency("kettle-dev", "~> 3.1", ">= 3.1.26")             # ruby >= 3.4
